@@ -88,10 +88,11 @@
 #### CopyOnWriteArrayList
 
 - Thread-safe. 
-- Backed array is copied during every element insert. 
-- Avoids ConcurrentModificationException since iteration can continue in original copy, and insert results in new copy. 
+- For every write operation (add, set, remove, etc), it makes a new copy of the elements in the list. and for the read operations (get, iterator, listIterator, etc), it works on a different copy. 
+- It locks the list during write operation only, so no lock during read operation therefore, multiple threads executing read operations  concurrently.
+- It is a fail-safe iterator.Avoids ConcurrentModificationException since iteration can continue in original copy, and insert results in new copy. 
 - High memory usage (more pressure on GC) due to the resulting copies.
-- Use case - Large number of threads for read, low number of writes. 
+- Use case - It is best to use when ArrayList is small or read operation are greater then write operation.
     
 #### Collections.synchronizedList
 
