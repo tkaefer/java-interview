@@ -51,7 +51,7 @@
 ### Lists
 
 #### ArrayList
-
+- class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, Serializable
 - Backed by array (which are co-located in memory), thus fast iteration and get(i) operation.
 - Slow inserts when the backed array is full and has to double in size.
 - Fail-fast iterators, which can throw ConcurrentModificationException.
@@ -60,6 +60,7 @@
     
 #### LinkedList
 
+- class LinkedList<E> extends AbstractSequentialList<E> implements List<E>, Deque<E>, Cloneable, Serializable
 - Chain of nodes referencing each other (doubly linked list).
 - No co-location of nodes, pointers need to be chased for next element, thus slow iterations and get(i) operation.
 - Fail-fast iterators, which can throw ConcurrentModificationException. 
@@ -87,6 +88,7 @@
     
 #### CopyOnWriteArrayList
 
+- class CopyOnWriteArrayList<E> implements List<E>, RandomAccess, Cloneable, Serializable
 - Thread-safe. 
 - For every write operation (add, set, remove, etc), it makes a new copy of the elements in the list. and for the read operations (get, iterator, listIterator, etc), it works on a different copy. 
 - It locks the list during write operation only, so no lock during read operation therefore, multiple threads executing read operations  concurrently.
@@ -95,7 +97,7 @@
 - Use case - It is best to use when ArrayList is small or read operation are greater then write operation.
     
 #### Collections.synchronizedList
-
+- class SynchronizedList<E> extends Collections.SynchronizedCollection<E> implements List<E>
 - Thread-safe.
 - Can be slow due to mutual exclusion.
 - Iterations have to be externally synchronized by developer 
