@@ -94,15 +94,16 @@
 - It locks the list during write operation only, so no lock during read operation therefore, multiple threads executing read operations  concurrently.
 - It is a fail-safe iterator.Avoids ConcurrentModificationException since iteration can continue in original copy, and insert results in new copy. 
 - High memory usage (more pressure on GC) due to the resulting copies.
+- It can safely iterate outside the synchronized block.
 - Use case - It is best to use when ArrayList is small or read operation are greater then write operation.
     
 #### Collections.synchronizedList
 - class SynchronizedList<E> extends Collections.SynchronizedCollection<E> implements List<E>
-- Thread-safe.
+- Thread-safe. It locks the whole list for thread-safety during both read or write operation.
 - Can be slow due to mutual exclusion.
-- Iterations have to be externally synchronized by developer 
+- Iteration of list should be inside synchronized block otherwise it will face non-deterministic behaviour.
 - Can throw ConcurrentModificationException if (above mentioned) synchronization not done during iteration.
-
+- Use Case - It is best to use when arraylist is large and write operation are greater than read operation in list.
 ---
 
 ### Sets
