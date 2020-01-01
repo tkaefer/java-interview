@@ -113,10 +113,14 @@ Collection of unique elements. No duplicates.
 #### HashSet
 
 - Backed by HashMap. 
+- It is unsorted, unordered and non-indexed based collection class.
+- HashSet can have only one Null element
 - Performance can vary based on hashCode implementation.
 - Constant time get/remove/add/contains (subject to above point).
 - Fail-fast iterators.
-- Insertion order not retained. 
+- Choosing an initial capacity that's too high can waste both space and time. On the other hand, choosing an initial capacity that's too low wastes time by copying the data structure each time it's forced to increase its capacity. If you don't specify an initial capacity, the default is 16.
+- The HashSet class has one other tuning parameter called the load factor. HashSet size grows as per load factor defined or default double size.
+-[ More information] (https://www.w3resource.com/java-tutorial/java-hashset.php)
     
 #### LinkedHashSet
 
