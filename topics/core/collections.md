@@ -131,11 +131,18 @@ Collection of unique elements. No duplicates.
 - Other features, same as HashSet above (except iteration)
 
 #### TreeSet
-
+- class TreeSet<E> extends AbstractSet<E> implements NavigableSet<E>, Cloneable, java.io.Serializable
 - Elements sorted by their natural order (or Comparator passed in constructor).
 - Log(n) time for add/remove/contains operations.
 - Navigable (floor, ceiling, higher, lower, headSet, tailSet operations).
 - Fail fast iterators.
+- TreeSet is implemented using a Self Balancing Binary Search Tree (Red-Black Tree). TreeSet is backed by TreeMap in Java.
+- TreeSet doesn’t allow null Object and throw NullPointerException, Why, because TreeSet uses compareTo() method to compare keys and compareTo() will throw java.lang.NullPointerException. Till 1.6 null was accepted only as the first element.
+- TreeSet uses compare() and compareTo() methods to compare the objects
+- When one need to perform read/write operations frequently, then TreeSet is a good choice.
+- If we are short on memory, we should go for the TreeSet
+- HashSet‘s performance can be tuned using the initialCapacity and loadFactor, which is not possible for the TreeSet.
+ 
 
 #### ConcurrentSkipListSet
 
