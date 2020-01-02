@@ -113,6 +113,7 @@ Collection of unique elements. No duplicates.
 
 #### HashSet
 
+- class HashSet<E> extends AbstractSet<E> implements Set<E>, Cloneable, java.io.Serializable
 - Backed by HashMap. 
 - It is unsorted, unordered and non-indexed based collection class.
 - HashSet can have only one Null element
@@ -124,7 +125,7 @@ Collection of unique elements. No duplicates.
 - (https://www.w3resource.com/java-tutorial/java-hashset.php)
     
 #### LinkedHashSet
-
+- class LinkedHashSet<E> extends HashSet<E> implements Set<E>, Cloneable, java.io.Serializable 
 - Insertion order is retained. 
 - Uses doubly-linked list to maintain the order.
 - Iteration can be slower due to this.
