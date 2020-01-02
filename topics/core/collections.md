@@ -140,14 +140,17 @@ Collection of unique elements. No duplicates.
 - TreeSet is implemented using a Self Balancing Binary Search Tree (Red-Black Tree). TreeSet is backed by TreeMap in Java.
 - TreeSet doesn’t allow null Object and throw NullPointerException, Why, because TreeSet uses compareTo() method to compare keys and compareTo() will throw java.lang.NullPointerException. Till 1.6 null was accepted only as the first element.
 - TreeSet uses compare() and compareTo() methods to compare the objects
-- When one need to perform read/write operations frequently, then TreeSet is a good choice.
+- While working with large amount of data access and retrieval is faster with TreeSet
 - If we are short on memory, we should go for the TreeSet
 - HashSet‘s performance can be tuned using the initialCapacity and loadFactor, which is not possible for the TreeSet.
  
 
 #### ConcurrentSkipListSet
-
+- class ConcurrentSkipListSet<E> extends AbstractSet<E> implements NavigableSet<E>, Cloneable, java.io.Serializable
 - Thread-safe.
+- Doesn’t allows null values.
+- Sorted set just like TreeSet but it is also scalable and concurrent so ConcurrentSkipListSet is thread-safe and can be accessed by multiple threads safely.
+- Operations like add and remove are done atomically using compare and swap (CAS). These are lock-free so overhead of synchronization is not there
 - Log(n) time for add/remove/contains operations.
 - Navigable (floor, ceiling, higher, lower, headSet, tailSet operations).
 - Size method is not constant time operation. 
@@ -155,12 +158,28 @@ Collection of unique elements. No duplicates.
 - Thus, bulk operations (addAll, removeAll, retainAll, containsAll etc) are not guaranteed to be atomic.
 
 #### CopyOnWriteArraySet
-
+- class CopyOnWriteArraySet<E> extends AbstractSet<E> implements Serializable
 - Backed by CopyOnWriteArrayList
 - Thread-safe. 
 - Slow. Operations have to iterate through the array for most operations.  
-- Recommended where reads vastly outnumber writes and set size is small.
-    
+- Suited to cases where the set is relatively small and reads far outweight writes. Any modification of the set is expensive (since a brand new copy is created each time), but reads are non-blocking.
+- Traversal via iterators is fast and cannot encounter interference from other threads.
+ 
+#### Collections.synchronizedList
+- class SynchronizedList<E> extends Collections.SynchronizedCollection<E> implements List<E>
+- Thread-safe. It locks the whole set for thread-safety during both read or write operation.
+- Can be slow due to mutual exclusion.
+- Iteration of set should be inside synchronized block otherwise it will face non-deterministic behaviour.
+- Can throw ConcurrentModificationException if (above mentioned) synchronization not done during iteration.
+- Use this if you only have low concurrency, and want to be sure all changes are immediately visible to the other threads.
+
+#### Collections.newSetFromMap(new ConcurrentHashMap())
+- Returns a set backed by the specified map.
+- Basic options are (on average, if you have a good and fast hashCode()) in O(1) (but might degenerate to O(n)), like for HashMap/HashSet.
+- Limited concurrency for writing (the table is partitioned, and write access will be synchronized on the needed partition), while read access is fully concurrent to itself and the writing threads (but might not yet see the results of the changes currently being written). - The iterator may or may not see changes since it was created, and bulk operations are not atomic.
+- Resizing is slow (as for HashMap/HashSet), thus try to avoid this by estimating the needed size on creation (and using about 1/3 more of that, as it resizes when 3/4 full).
+- Use this when you have large sets, a good (and fast) hash function and can estimate the set size and needed concurrency before creating the map.
+ 
 #### EnumSet
 
 - To be used with Enum types.
