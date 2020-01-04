@@ -265,13 +265,16 @@ Collection of unique elements. No duplicates.
 - Backed by array. Thus bounded in size.  
 - Adding element to full queue results in blocking.
 - Polling an empty queue results in blocking.
+- Uses single-lock double condition algorithm
 - Use case - Producer consumer problem.
     
 #### LinkedBlockingQueue
 
 - Thread-safe.
 - Backed by linked-list.
-- Optionally bounded in size. Takes maxSize as constructor argument. 
+- Optionally bounded in size. Takes maxSize as constructor argument.
+- Variant of the "two lock queue" algorithm and it has 2 locks 2 conditions ( takeLock , putLock).
+
 
 #### ConcurrentLinkedQueue
 
@@ -293,16 +296,38 @@ Collection of unique elements. No duplicates.
 #### PriorityBlockingQueue
 
 - Thread-safe.
+- Unbounded queue and grows dynamically.
+- The default initial capacity is 11.
+- Objects added to PriorityBlockingQueue MUST be comparable otherwise it throws ClassCastException.
+- It does not allow NULL objects.
     
 #### DelayQueue
 
-- Elements added, are available to be removed only after their delay-time is expired. 
+- An unbounded blocking queue of Delayed elements
+- DelayQueue is a specialized Priority Queue that orders elements based on their delay time.
+- If no delay has expired, then there is no head and poll will return null.
+- Elements added, are available to be removed only after their delay-time is expired.
+- Queue does not permit null elements
 
 #### SynchronousQueue
 
-- Holds single elements.
+- SynchronousQueue is more of a handoff. 
+- Holds single element internally.
 - Blocks for both producer and consumer to arrive.
-- Use case - For safe/atomic transfer of objects between threads.
+- An element cannot be inserted if the consumer take() call is going to take some time to consume it..
+- Use case - For safe/atomic transfer of objects between threads (cachedThreadPool)
+
+#### TransferQueue
+
+- Concurrent blocking queue implementation in which producers may wait for receipt of messages by consumers..
+- LinkedTransferQueue class is an implementation of TransferQueue in Java.
+- Unbounded queue on linked nodes.
+- Queue orders elements FIFO (first-in-first-out) with respect to any given producer.
+- LinkedTransferQueue is thread safe.
+- It does not allow NULL objects.
+- blocking insertion and retrieval operations.
+- TransferQueue may be useful for example in message passing applications in which producers sometimes (using method transfer()) await receipt of elements by consumers invoking take or poll, while at other times enqueue elements (via method put()) without waiting for receipt.
+
 
 ---
 
