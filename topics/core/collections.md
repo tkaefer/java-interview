@@ -278,7 +278,8 @@ Collection of unique elements. No duplicates.
 
 #### ConcurrentLinkedQueue
 
-- Thread-safe. 
+- Unbounded queue which is thread-safe. 
+- Non-blocking there are no put() or take() methods which will block if required
 - Uses CAS (Compare-And-Swap) for more throughput. Also known as lock free. 
 
 #### Deque classes
