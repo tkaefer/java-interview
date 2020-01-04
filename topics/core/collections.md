@@ -235,6 +235,20 @@ Collection of unique elements. No duplicates.
 - Thread-safe version of TreeMap.
 - Navigable (floor, ceiling, higher, lower, headSet, tailSet operations).
 
+#### IdentityHashMap
+
+- Uses == operator when comparing keys and values, instead of equals method. 
+- Uses System.identityHashCode(object) instead of hashCode(). 
+- Initial capaity of IndentityHashMap is 21.
+- If you see the below output for both IdentityHashMap and HashMap, you can find that IdenityHashMap allows duplicate keys and values(bcz of reference comparision), where as HashMap doesn’t allow(bcz of Object comparision).
+- It's not a general purpose Map because it doesn't use equals() method for comparing keys, hence also breaks Map interface's contract.
+
+#### WeakHashMap
+- WeakReference: When an object is assigned with some value, and it’s not reachable then that value will be removed/garbage collected.
+- StrongReference: By default any object in java are StrongReference, i.e. they garbage collected only if there are no reference to it.
+  User user = new User();
+- WeakHashMap works on weak references, i.e. when a key of WeakHashMap is not in use( or assigned to null) and garbage collected, then that entry will be removed from it.
+- Quite useful for Caching. 
 ---
 
 ### Queues
