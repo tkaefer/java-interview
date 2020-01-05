@@ -36,6 +36,7 @@ topics like inheritance, interfaces, etc. please read the book mentioned below.
 - Using: static final variable (init guarantee)
 - Using: Lazy loading (double checked) 
 - Using: Enums (by default lazy, and init guarantee)
+- https://www.journaldev.com/1377/java-singleton-design-pattern-best-practices-examples#serialization-and-singleton
 
 ### Override method rules
 
@@ -81,3 +82,13 @@ Also, this topic does not come up a lot in interviews, so just skimp through.
 - Requires class to implement Cloneable marker interface. Else returns CloneNotSupportedException
 - Singletons should override clone method and throw CloneNotSupportedException
 - [More details](../design/effective-java.md#clone)
+
+### Serialization
+
+- Serialization in Java allows us to convert an Object to stream that we can send over the network or save it as file or store in DB.
+- Deserialization is the process of converting Object stream to actual Java Object to be used in our program.
+- Class needs implement the java.io.Serializable (marker interface and has no fields or methods to implement).
+- Serialization in java is implemented by ObjectInputStream and ObjectOutputStream.
+- If you want an object property to be not serialized to stream, you can use transient keyword.
+- https://www.journaldev.com/2452/serialization-in-java
+
