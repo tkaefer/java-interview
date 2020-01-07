@@ -8,6 +8,8 @@
 ### Table of Contents
 
 - [Basics](#basics)
+  * [Parallelism] (#parallelism)
+  * [Concurrency] (#concurrency)
   * [Benefits of Threads](#benefits-of-threads)
   * [Thread safety](#thread-safety)
   * [Race Condition](#race-condition)
@@ -57,6 +59,29 @@
 
 
 ### Basics
+
+#### Parallelism
+
+- Tasks are divided into smaller sub-tasks that are processed simultaneously or parallel.
+- Do lot of things simultaneously.
+- It is achieved by through multiple central processing units(CPUs).
+- Can’t be done by using a single processing unit.
+- Improves the throughput and computational speed of the system.
+- Deterministic control flow approach.
+- Example - Processing Tax for differnt Users. Objects are not shared i.e user1, user2 etc
+- Tools to enable parllelism - Thread, ThreadPool (ExecutorService, ForkAndJoin and Custom Thread Pools) 
+
+#### Concurrency
+
+- Task of running and managing the multiple computations at the same time.
+- Achieved through the interleaving operation of processes on the central processing unit(CPU) or in other words by the context switching.
+- Can be done by using a single processing unit.
+- Increases the amount of work finished at a time.
+- Deals lot of things simultaneously.
+- Non-deterministic control flow approach.
+- Example - Booking availale ticket. Shared object i.e availableTicket.
+- Tools to deal with Concurrency - Locks/syncronized, atomic classes, concurrent data structures, computetableFuture,    synchronizers(CDL,Semaphore etc)
+
 
 #### Benefits of Threads
 
