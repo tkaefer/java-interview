@@ -129,9 +129,19 @@ Even if your class doesn't use threads, these do
 
 - Thread.Yield() is static method and native too.
 - Yield tells the currently executing thread to give a chance to the threads that have equal priority in the Thread Pool.
-- Yield is not overloaded, non-final and dos not throws any exception.
+- Yield is not overloaded, non-final and dos not throw any exception.
 - Purpose - If a thread wants to pass its execution to give chance to remaining threads of same priority then we should go for yield().
 
+### Inter Thread Communication ( wait, notify and notifyall)
+ - The current thread which invokes these final methods(part of Object class) on any object should have the object monitor else it throws   java.lang.IllegalMonitorStateException exception.
+ - Wait tells the calling thread to give up the lock(releases the lock) and go to sleep until some other thread enters the same monitor and calls notify().
+ - Wait is native call in java
+ - Before calling wait() method, the	object should be synchronized, means the object should be inside synchronized block.
+ - Notify wakes up one single thread that called wait() on the same object
+ - Callling notify() does not actually give up a lock on a resource.
+ - It tells a waiting thread that that thread can wake up. However, the lock is not actually given up until the notifier’s synchronized block has completed.
+ - notifyAll  wakes up all the threads that called wait() on the same object. 
+ - The highest priority thread will run first in most of the situation, though not guaranteed. 
 
 #### Thread safety
 
