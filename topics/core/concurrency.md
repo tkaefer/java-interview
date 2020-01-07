@@ -176,6 +176,14 @@ _No set of operations performed sequentially or concurrently on instances of a t
 - Do not use String literals because they might be referenced else where in the application and can cause deadlock. String objects created with new keyword can be used safely. But as a best practice, create a new private scoped Object instance OR lock on the shared variable itself which we want to protect.
 - [Do not synchronize on objects that may be reused](https://bit.ly/2T4ZZOr)
 
+### Compare and Swap (CAS Alogrithim)
+
+- Traditional locking mechanisms e.g. using synchronized keyword in java, is said to be pessimistic technique of locking or multi-threading.
+- The optimistic approach is like the old saying, “It is easier to obtain forgiveness than permission”, where “easier” here means “more efficient”. CAS is an example of optimistic technique. StampedLock also has support for optimistic locking.
+- Compare and swap is a technique used when designing concurrent algorithms
+- Compare the value of the primitive to the value we have got in hand.
+- If the values do not match it means some thread in between has changed the value. Else it will go ahead and swap the value with new value.
+- Java 5+ lets you utilize the underlying compare and swap features of the CPU your application is running on which makes faster.
 
 #### Liveness and Performance
 
@@ -191,7 +199,7 @@ _No set of operations performed sequentially or concurrently on instances of a t
 - Synchronized keyword ensures other thread reads latest data
 - Volatile keyword does the same (flush and refresh)
 - Semantics of volatile does not guarantee atomic increment!! Thus use volatile generally as status flags and such.
-- AtomicLong and AtomicInt class should be used for counters and AtomicRefernce for caches, used by internal classes and non blocking algorthim.
+- AtomicLong and AtomicInteger class should be used for counters and AtomicRefernce for caches, used by internal classes and non blocking algorthim.
 
 
 Debugging tip: --server argument can hoist variables out of if condition (due to heavier optimization), while client JVM may not. Thus don&#39;t just think, if it works in client it works on server.
@@ -209,6 +217,15 @@ Confining variables within method is best. For primitives its easy, but for obje
 Note: unmodifiableCollection doesn&#39;t allow references to be updated, but objects&#39; can still be updated if they are mutable.  Eg: Map&lt;String, Vehicle&gt;.. Vehicle object can still be updated.
 
 ThreadLocal can also be used if its instance variable, but has to be thread-confined.
+
+## ThreadLocal
+
+- ThreadLocal class enables you to create variables that can only be read and written by the same thread.
+- Per thread instances for memory efficiency and thread safety.
+- Create a ThreadLocal subclass that overrides the initialValue() method and it will be called for each thread
+- Create a ThreadLocal with a Supplier interface(functional interface from java 8) implementation.
+- ThreadLocal threadLocal3 = ThreadLocal.withInitial(() -> String.valueOf(System.currentTimeMillis()) );
+- The InheritableThreadLocal class is a subclass of ThreadLocal. Instead of each thread having its own value inside a ThreadLocal, the InheritableThreadLocal grants access to values to a thread and all child threads created by that thread.
 
 #### Immutability
 
@@ -432,17 +449,24 @@ Thread provides facility for UncaughtExceptionHandler. When thread dies due to s
 ### Avoiding Liveness Hazards
 
 #### Deadlocks
-
+- DeadLock occurs when a thread is waiting for a lock held by another thread and vice versa
+- Difficult to detect due mupltiple locks types and thread sources
 - Database systems are great at handling deadlocks; they back-off certain transactions such that locks are released.
 - JVM is not so kind. When threads are deadlocked, that&#39;s it, game over.
 
 Transfer money is classic examples (with synchronized block on from and to accounts). If 2 calls are made, where 1st case arguments are from then to, and in 2nd case, its to then from. They may deadlock. To solve, either get comparable int keys or System.identityHashcode(), and order which account to be synchronized first. So no matter what&#39;s order of arguments, you always lock same account first, avoiding deadlock.
 
+**How to detect**
+
+ - thread dumps ( jstack and kill-3). If we are using Windows and Java 8, command is jcmd $PID Thread.print
+ - JavaMXBean
+
 **How to avoid**
 
 - Use only 1 locks (so no ordering issues)
 - Order locks if multiple (ensure ordering is same no matter order of arguments)
-- Use tryLock method of lock classes
+- Use tryLock method of lock classes and timeouts
+
 
 #### Starvation and LiveLock
 
