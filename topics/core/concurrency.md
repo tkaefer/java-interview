@@ -118,8 +118,6 @@ Even if your class doesn't use threads, these do
 
 #### Join ()
 
-- Yield means currently executing thread gives chance to the threads that have equal priority in the Thread-pool.
-- yield () is a not-static method in Thread Class.
 - Used to impose order on execution of multiple Threads.
 - Throws IntrupptedException if another thread interrupted waiting for thread as a result of join() call
 - Join is also a blocking method, which blocks until the thread on which join has called die or specified waiting time is over. 
@@ -128,6 +126,12 @@ Even if your class doesn't use threads, these do
 - Purpose - If a thread wants to wait until completing of some other thread then we should go for join().
 
 #### Yield ()
+
+- Thread.Yield() is static method and native too.
+- Yield tells the currently executing thread to give a chance to the threads that have equal priority in the Thread Pool.
+- Yield is not overloaded, non-final and dos not throws any exception.
+- Purpose - If a thread wants to pass its execution to give chance to remaining threads of same priority then we should go for yield().
+
 
 #### Thread safety
 
