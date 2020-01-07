@@ -164,10 +164,18 @@ _No set of operations performed sequentially or concurrently on instances of a t
 #### Synchronized
 
 - Aka Intrinsic locks, Mutexes, monitors
-- Are re-entrant
+- Are re-entrant means if a synchronized method calls another synchronized method which requires same lock then current thread which is holding lock can enter into that method without acquiring lock.
 - Re-entrancy can help for overridden synchronized methods. Call to super.method() tries to re-acquire lock, and is permitted.
+- no two threads can execute a synchronized method, which requires same lock, simultaneously or concurrently.
+- synchronized keyword can be used only with methods and code blocks.
+- Lock is released even if thread leaves synchronized method after completion or due to any Error or Exception.
+- synchronization will throw NullPointerException if object used in synchronized block is null.
+- both static synchronized and non static synchronized method can run simultaneously or concurrently because they lock on different object.
+- you can not use synchronized keyword with constructor. It is illegal and result in compilation error.
+- Do not synchronize on non final field on synchronized block in Java. because reference of non final field may change any time and then different thread might synchronizing on different objects i.e. no synchronization at all.
+- Do not use String literals because they might be referenced else where in the application and can cause deadlock. String objects created with new keyword can be used safely. But as a best practice, create a new private scoped Object instance OR lock on the shared variable itself which we want to protect.
+- [Do not synchronize on objects that may be reused](https://bit.ly/2T4ZZOr)
 
-Allowing Object class to act as a lock (instead of special classes) was a mistake in JVM design. JVM implementors now have to make trade offs between object size and locking performance.
 
 #### Liveness and Performance
 
@@ -190,7 +198,7 @@ Debugging tip: --server argument can hoist variables out of if condition (due to
 
 #### Safe construction
 
-Do not let this reference escape the constructor. Even if it is last statement of constructor, the escaped reference of this, may not be pointing to completed object.
+Do not let this reference escape the constructor. Even if it is last statement of constructor, the escaped reference of this, may not be pointing to completed object. (https://vlkan.com/blog/post/2014/02/14/java-safe-publication/)
 
 Thus instead of constructors, listeners use setListener factory methods.
 
@@ -249,7 +257,7 @@ To just give static view (non-live view) wrap it in new HashMap instance and the
 
 Collections.unmodifiableMap(new HashMap&lt;String, Point&gt;(locations));}
 
-#### Client-side locking
+#### Composition/Client-side locking
 
 It can be difficult, because client has to lock on same object which the ThreadSafeClass uses. For example creating a putIfAbsent method in List class
 
