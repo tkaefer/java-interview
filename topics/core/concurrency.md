@@ -149,11 +149,12 @@ Correctness means that a class _conforms to its specification_. A good specifica
 
 _No set of operations performed sequentially or concurrently on instances of a thread-safe class can cause an instance to be in an invalid state._
 
-#### Race Condition
+#### Race Condition/ Data Race
 
-- A race condition occurs when the correctness of a computation depends on the relative timing or interleaving of multiple threads by the runtime
+- Race condition in Java occurs when Multiple thread access shared variable.Value of variable depends on the execution order (relative timing or interleaving) of threads.
 - Occurs usually with _check-then-act_ (check stale value). Eg: Lazy initialization.
-- Data races is different than race condition. Data races is when thread access (read/write) data to variable without any synchronization.
+- Data races is different than race condition. Multiple thread access shared variable without synchronization. Atleast one thread is writing the vairable.
+
 
 #### Solutions to compound operations
 
@@ -178,10 +179,12 @@ Allowing Object class to act as a lock (instead of special classes) was a mistak
 #### Data Visibility
 
 - When data is not synchronized, other thread might read stale data (due to caching of variables in CPU registers and L1, L2)
-- 64-bit operations can be treated as 2 32-bit operations, thus need to be synchronized
+- 64-bit operations can be treated as 2 32-bit operations and leads to "word tearing", thus need to be synchronized. 
 - Synchronized keyword ensures other thread reads latest data
-- Volatile keyword does the same
+- Volatile keyword does the same (flush and refresh)
 - Semantics of volatile does not guarantee atomic increment!! Thus use volatile generally as status flags and such.
+- AtomicLong and AtomicInt class should be used for counters and AtomicRefernce for caches, used by internal classes and non blocking algorthim.
+
 
 Debugging tip: --server argument can hoist variables out of if condition (due to heavier optimization), while client JVM may not. Thus don&#39;t just think, if it works in client it works on server.
 
