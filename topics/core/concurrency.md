@@ -8,8 +8,8 @@
 ### Table of Contents
 
 - [Basics](#basics)
-  * [Parallelism] (#parallelism)
-  * [Concurrency] (#concurrency)
+  * [Parallelism](#parallelism)
+  * [Concurrency](#concurrency)
   * [Benefits of Threads](#benefits-of-threads)
   * [Thread safety](#thread-safety)
   * [Race Condition](#race-condition)
@@ -79,8 +79,8 @@
 - Increases the amount of work finished at a time.
 - Deals lot of things simultaneously.
 - Non-deterministic control flow approach.
-- Example - Booking availale ticket. Shared object i.e availableTicket.
-- Tools to deal with Concurrency - Locks/syncronized, atomic classes, concurrent data structures, computetableFuture,    synchronizers(CDL,Semaphore etc)
+- Example - Booking availale ticket. Shared object i.e availableTickets.
+- Tools to deal with Concurrency - Locks/syncronized, atomic classes, concurrent data structures, computetableFuture,    synchronizers(CDL, Semaphore etc)
 
 
 #### Benefits of Threads
@@ -96,6 +96,38 @@ Even if your class doesn't use threads, these do
 - JVM (for GC + Main)
 - Timer
 - Servlets &amp; JSP
+
+#### Threads Creation
+
+- A thread is a thread of execution in a program
+- Threads with higher priority are executed in preference to threads with lower priority.
+- Instances of class java.lang.Thread, or instances of subclasses of this class.
+- Create Thread using Thread thread = new Thread(); and Start Thread using  thread.start();
+- Threads can be created by extending the Thread Class or Implmenting Runnable interface in your class.
+
+#### Sleep ()
+
+-  Thread.sleep() is static method in thread class.
+-  Keeps the lock or monitor even if thread is waiting
+-  Sleep can be called without synchronized block.
+-  Pause the current thread execution, relinquish(give up) the CPU and return it to thread scheduler.
+-  native sleep(long millis) and  non native sleep(long millis,int nanos).
+-  Throws Interrupted Exception if another thread interrupts a sleeping thread
+-  Not finafinal
+-  Purpose - If a thread does not want to perform any operation for a particular amount of time, then it goes for sleep()
+
+#### Join ()
+
+- Yield means currently executing thread gives chance to the threads that have equal priority in the Thread-pool.
+- yield () is a not-static method in Thread Class.
+- Used to impose order on execution of multiple Threads.
+- Throws IntrupptedException if another thread interrupted waiting for thread as a result of join() call
+- Join is also a blocking method, which blocks until the thread on which join has called die or specified waiting time is over. 
+- For example - t1 and t2 are two threads. t1.join is called in t2 then t1 will finish first followed by t2.
+- Join is also an overloaded method in Java, three version of join() available
+- Purpose - If a thread wants to wait until completing of some other thread then we should go for join().
+
+#### Yield ()
 
 #### Thread safety
 
