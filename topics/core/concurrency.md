@@ -503,6 +503,11 @@ ConcurrentLinkedQueue is twice as fast as synchronizedLinkedList, because former
 #### Lock and ReentrantLock
 
 Lock implementations must provide the same memory-visibility semantics as intrinsic locks, but can differ in their locking semantics, scheduling algorithms, ordering guarantees, and performance characteristics.
+- A java.util.concurrent.locks.Lock is a thread synchronization mechanism just like synchronized blocks.
+- Locks support various methods for finer grained lock control thus are more expressive than implicit monitors.
+- ReentrantLock is one such implementation of Lock interface.
+- lock() and unlock() methods are used to acuire and release the locks
+- tryLock() as an alternative to lock() tries to acquire the lock without pausing the current thread. The boolean result must be used to check if the lock has actually been acquired before accessing any shared mutable variable.
 
 
 #### Advantages of lock classes
@@ -515,8 +520,8 @@ Lock implementations must provide the same memory-visibility semantics as intrin
 - Since Java 6, performance of intrinsic and reentrant lock is very similar. Earlier it used to be slower.
 
 Always do lock.unlock in finally block
-
 Locks can be fair/unfair. Fair locks implement queues to handle requests for a lock. Ofcourse, fairness comes with cost of performance.
+If you don’t call the unlock() method at the end of the critical section, the other threads that are waiting for that block will be waiting forever, causing a deadlock situation. 
 
 #### Read-Write lock
 
