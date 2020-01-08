@@ -527,6 +527,7 @@ If you don’t call the unlock() method at the end of the critical section, the 
 
 - Allows multiple concurrent readers, but only single writer
 - Great for data structure with lot of reads
+- the read-lock can be held simultaneously by multiple threads as long as no threads hold the write-lock
 - More complex to implement thus slightly slower than reentrant lock
 
 **Implementation factors**
@@ -536,6 +537,19 @@ If you don’t call the unlock() method at the end of the critical section, the 
 - Reentrancy - Are they reentrant
 - Downgrading - what if writer lock owners wants only reader lock
 - Upgrading - What if reader lock owner also wants writer lock
+
+### StampedLock
+
+- Java 8 ships with a new kind of lock called StampedLock which also support read and write locks
+- In contrast to ReadWriteLock the locking methods of a StampedLock return a stamp represented by a long value  ex- long stamp = lock.readLock() that can be used in finally as lock.unlockRead(stamp)
+- You can use these stamps to either release a lock or to check if the lock is still valid.
+- stamped locks don't implement reentrant characteristics.
+- Each call to lock returns a new stamp and blocks if no lock is available even if the same thread already holds a lock. So you have to pay particular attention not to run into deadlocks.
+
+- Additionally stamped locks support another lock mode called **optimistic locking.
+- An optimistic read lock is acquired by calling tryOptimisticRead() which always returns a stamp without blocking the current thread, no matter if the lock is actually available.
+-  If there's already a write lock active the returned stamp equals zero. You can always check if a stamp is valid by calling lock.validate(stamp).
+- Sometimes it's useful to convert a read lock into a write lock without unlocking and locking again. StampedLock provides the method tryConvertToWriteLock() 
 
 #### Custom Synchronizer
 
