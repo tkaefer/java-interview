@@ -341,16 +341,22 @@ There are also hidden iterators, like when you do toString on collection it inte
 #### Synchronizers
 
 + Latches
-    - Can act as a gate, where all threads stop at the gate, and allowed once gate is opened.
+    - Act as a gate, where all threads stop at the gate, and allowed once gate is opened.
     - This binary closed-open action is good for implementing &#39;Resource is initialized, now dependent actions can begin&#39;
     - Eg: Wait for all dependent services to init, wait for all players to arrive, wait until all worker threads finish etc.
     - CountDownLatch: await method, thread waits till count decrements to zero, or is interrupted or wait times out
     - FutureTask can also act as latch. future.get() method waits until task is completed and returns results.
+    - Disadvantage of CountDownLatch is that its not reusable once count reaches to zero you can not use CountDownLatch any more,
     
 + Semaphores    
     - Permits (acquire and release)
+    - Locks usually grant exclusive access to variables or resources, a semaphore is capable of maintaining whole sets of permits.
+    - A binary semaphore only takes only 0 and 1 as values and is used to implement mutual exclusion as well as synchronize concurrent processes.
+    - Counting semaphore: The value of a counting semaphore at any point indicates the maximum number of processes that can enter the critical section at the exact same time.
     - Useful in creating bounded collections
     - Can instead use BlockingQueue, if resources themselves are to be tracked. Eg: Object pool
+    - ()Database connection pool 
+    - acquire
 
 + Barriers    
     - Similar to Latches with key difference
