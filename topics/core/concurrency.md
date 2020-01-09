@@ -356,7 +356,8 @@ There are also hidden iterators, like when you do toString on collection it inte
     - Useful in creating bounded collections
     - Can instead use BlockingQueue, if resources themselves are to be tracked. Eg: Object pool
     - ()Database connection pool 
-    - acquire
+    - tryAcquire():  return true if a permit is available immediately and acquire it otherwise return false, but acquire() acquires a permit and blocking until one is available
+    - availablePermits() – return number of current permits available
 
 + Barriers    
     - Similar to Latches with key difference
@@ -370,6 +371,7 @@ There are also hidden iterators, like when you do toString on collection it inte
 + Exchanger
     - Similar to Barrier that both wait until other arrives at same point.
     - Once reached they can exchange an object.
+    - Same as SynchronousQueue but handoff in both directions
     - This is transfer of ownership of object (safe publication)
     - Example: Consumer exchanging an empty buffer with the producer, for a full buffer.
 
@@ -535,6 +537,14 @@ If you don’t call the unlock() method at the end of the critical section, the 
 - Great for data structure with lot of reads
 - the read-lock can be held simultaneously by multiple threads as long as no threads hold the write-lock
 - More complex to implement thus slightly slower than reentrant lock
+
+#### Condition 
+- Condition variables are instance of java.util.concurrent.locks.Condition class.
+- Provides inter thread communication methods similar to wait, notify and notifyAll e.g. await(), signal() and signalAll().
+- You can create condition variable by calling lock.newCondtion() method.
+- his class provides method to wait on a condition and notify waiting threads, much like Object class' wait and notify method
+- awaitNanos(long timeout) which wait until notification or timeout and awaitUnInterruptibly() which causes current thread to wait until signalled.
+
 
 **Implementation factors**
 
