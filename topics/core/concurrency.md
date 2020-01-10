@@ -378,7 +378,7 @@ There are also hidden iterators, like when you do toString on collection it inte
 ### Task Execution
 
 #### Thread Pools
-
+1 thread = 1 OS, more number of threads that number of OS thread which is expensive
 Threadpool with its bounded pool helps throttle the inputs/requests so as to not exhaust available resources.
 
 Single Threaded Executors provide synchronization guarantee that writes made by a task will be visible to subsequent tasks.
@@ -428,7 +428,18 @@ Thread provides facility for UncaughtExceptionHandler. When thread dies due to s
 - int N\_CPUS = Runtime.getRuntime().availableProcessors();
 - Other deciding factors: memory, file handles, socket handles, and database connections
 
-#### ThreadPoolExecutor
+#### ThreadPoolExecutor 
+
+- java.util.concurrent.Executors provide factory and support methods for java.util.concurrent for ExecutorService and ScheduledExecutorService.
+- ExecutorService(shutdown, submit, invokeAll, invokeAny etc methods) is interface extends Executor interface (has execute method) to create the thread pool in java.
+-  Executor(I) 
+       |
+       |
+   ExecutorService(I)          <--- ThreadPoolExecutor
+       |
+       |
+   ScheduledExecutorService(I) <--- ScheduledThreadPoolExecutor 
+                   
 
 #### Threads
 - newFixedThreadPool: corePoolSize == maximumPoolSize
