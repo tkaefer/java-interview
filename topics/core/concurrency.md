@@ -463,6 +463,15 @@ Thread provides facility for UncaughtExceptionHandler. When thread dies due to s
 ### LifeCycle methods
 
 <image src="../../images/LifeCycle-methods.png">
+ 
+###  Important Methods
+- Runnable() - Represent a task in Java and implements run(). No return a value and does not thows exception.
+- Callable () - Implements implement call() and returns a value and throw checked exception.
+- submit() – The function adds a task that returns a result to the list of executing tasks for execution. It returns a Future object which returns the result of the task after completion.
+- invokeAll() – The function executes all the tasks contained in the collection. The list of Future objects is returned which contains the status and return values of the various tasks.
+- invokeAny() – The function executes all the tasks contained in the collection. On completion of any single task it returns its result and all the other tasks are cancelled.
+- execute() - submit a task to Executor framework for asynchronous execution and rerurn type is void. Acccepts only Runnable
+
 
 ### Avoiding Liveness Hazards
 
