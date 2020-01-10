@@ -444,7 +444,7 @@ Thread provides facility for UncaughtExceptionHandler. When thread dies due to s
 #### Pool Internals
 <image src="../../images/ThreadPool.png">
  
-<image src="../../images/ThreadPool_internal.png">
+<image src="../../images/ThreadPool-Internal.png">
             
 #### Saturation Policy
 
