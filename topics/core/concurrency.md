@@ -386,9 +386,9 @@ Single Threaded Executors provide synchronization guarantee that writes made by 
 **Types**
 
 - newFixedSizeThreadPool - creates new thread, if one dies due to exception
-- newCachedThreadPool - keeps increasing threads
+- newCachedThreadPool - keeps increasing threads and thread expire in 60 secs after last used. i.e keepAlive 60 secs.
 - newSingleThreadExecutor - consumes task based on queue type (FIFO, LIFO, Priority etc), resurrects thread if dead
-- newScheduledThreadPool - supports delayed and periodic execution similar to Timer
+- newScheduledThreadPool - supports delayed and periodic execution similar to Timer and thread keepAlive as 60 secs.
 
 Usually shutdown call is immediately followed by awaitTermination.
 
