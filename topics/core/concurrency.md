@@ -441,14 +441,11 @@ Thread provides facility for UncaughtExceptionHandler. When thread dies due to s
    ScheduledExecutorService(I) <--- ScheduledThreadPoolExecutor 
                    
 
-#### Threads
+#### Pool Internals
 <image src="../../images/ThreadPool.png">
-
-#### Task Queues
-
-- newFixedThreadPool and newSingleThreadedExecutor use unbounded LinkedBlockingQueue
-- Try to use bounded (LinkedBlockingQueue, ArrayBlockingQueue or PriorityQueue)
-
+ 
+<image src="../../images/ThreadPool_internal.png>
+            
 #### Saturation Policy
 
 - When bounded queue is full, what to do when task is submitted
