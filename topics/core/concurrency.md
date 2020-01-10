@@ -442,9 +442,7 @@ Thread provides facility for UncaughtExceptionHandler. When thread dies due to s
                    
 
 #### Threads
-- newFixedThreadPool: corePoolSize == maximumPoolSize
-- newCachedThreadPool: corePoolSize = 0 and maximumPoolSize = Integer.MAX\_VALUE
-- Keep alive: how long to wait before unused thread is reclaimed (trade off)
+<image src="../../images/ThreadPool.png">
 
 #### Task Queues
 
