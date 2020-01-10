@@ -460,6 +460,10 @@ Thread provides facility for UncaughtExceptionHandler. When thread dies due to s
 - By default new non-daemon threads are created
 - Can be overridden to create special threads which do say logging
 
+### LifeCycle methods
+
+<image src="../../images/LifeCycle-methods.png">
+
 ### Avoiding Liveness Hazards
 
 #### Deadlocks
