@@ -598,3 +598,17 @@ Condition is associated with single lock. Lock.newCondition()
 
 - Fairness in wait
 - Timeout facility (flexibility)
+
+### Producer-Consumer Problem
+- Also called as bounded buffer problem
+- Problem involves a producer, consumer and a bounded queue (culprit)
+- Fix it by Array Blocking Queue
+ <image src="../../images/Producer_Consumer_ABQ.png">
+- Construct a array blocking queue using locks
+ <image src="../../images/Producer_Consumer_Locks.png">
+- Construct a array blocking queue using wait-notify
+  <image src="../../images/Producer_Consumer_wait_notify_part1.png">
+  <image src="../../images/Producer_Consumer_wait_notify_part2.png">
+  
+ 
+ 
