@@ -377,16 +377,24 @@ the difference between compose and andThen is the order they execute the functio
 
 ### Suppliers
 
-Suppliers produce a result of a given generic type. Unlike Functions, Suppliers don't accept arguments.
+Supplier is functional interface which does not take any argument and produces result of type T.It has a functional method called T get() As Supplier is functional interface, so it can be used as assignment target for lambda expressions.
 
 ```java
 Supplier<Person> personSupplier = Person::new;
 personSupplier.get();   // new Person
 ```
 
+Stream's generate method returns an infinite sequential stream where supplier generates each element.
+ ```java
+ Supplier<Integer> randomNumbersSupp=() -> new Random().nextInt(10);
+		Stream.generate(randomNumbersSupp)
+		                .limit(5)
+		                .forEach(System.out::println);
+```
 ### Consumers
 
-Consumers represent operations to be performed on a single input argument.
+Consumer is single argument functional interface like Predicate but it does not return any value.
+As Consumer is functional interface, so it  can be used as assignment target for lambda expressions.
 
 ```java
 Consumer<Person> greeter = (p) -> System.out.println("Hello, " + p.firstName);
