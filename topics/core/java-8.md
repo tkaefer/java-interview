@@ -86,7 +86,17 @@ Moveable.super.move();
 ```
 
 ## Lambda expressions
-
+- Lambda expression (or function) is just an anonymous function, i.e., a function with no name and without being bounded to an identifier.
+- Visualization of functional programming in the java object oriented world.
+- Sequential and parallel execution can be achieved by passing behavior into methods.
+- Java language provide support for using lambda expressions only with functional interfaces.
+- Reduced Lines of Code
+- Higher Efficiency (Utilizing Multicore CPU’s)
+- A lambda expression can have zero, one or more parameters.
+- The type of the parameters can be explicitly declared or it can be inferred from the context.
+- Multiple parameters are enclosed in mandatory parentheses and separated by commas. Empty parentheses are used to represent an empty set of parameters.
+- When there is a single parameter, if its type is inferred, it is not mandatory to use parentheses. e.g. a -> return a*a.
+- The body of the lambda expressions can contain zero, one or more statements. e.g (parameters) -> { statements; } 
 Let's start with a simple example of how to sort a list of strings in prior versions of Java:
 
 ```java
