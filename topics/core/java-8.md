@@ -74,6 +74,7 @@ The formula is implemented as an anonymous object. The code is quite verbose: 6 
 - Help us in avoiding utility classes, such as all the Collections class method can be provided in the interfaces itself.
 - **Major reason for introducing default methods** in interfaces is to enhance the Collections API in Java 8 to support lambda expressions.
 - Default methods are also referred to as **Defender Methods or Virtual extension methods**.
+
 **How conflicts are resolved while calling default methods?**
 1) Most preferred are the overridden methods in classes. They will be matched and called if found before matching anything.
 2) The method with the same signature in the “most specific default-providing interface” is selected. This means if class Animal  implements two interfaces i.e. Moveable and Walkable such that Walkable extends Moveable. Then Walkable is here most specific interface and default method will be chosen from here if method signature is matched.
