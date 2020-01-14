@@ -429,6 +429,9 @@ optional.get();                 // "bam"
 optional.orElse("fallback");    // "bam"
 
 optional.ifPresent((s) -> System.out.println(s.charAt(0)));     // "b"
+
+Optional<Company> companyOptional = Optional.empty();
+Company company = companyOptional.orElseThrow(IllegalStateException::new);
 ```
 
 ## Streams
