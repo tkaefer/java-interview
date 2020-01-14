@@ -4,6 +4,7 @@
 ## Table of Contents
 
 * [Default Methods for Interfaces](#default-methods-for-interfaces)
+* [Static Methods for Interfaces](#static-methods-for-interfaces)
 * [Lambda expressions](#lambda-expressions)
 * [Functional Interfaces](#functional-interfaces)
 * [Method and Constructor References](#method-and-constructor-references)
@@ -83,6 +84,30 @@ The formula is implemented as an anonymous object. The code is quite verbose: 6 
 Walkable.super.move();
 //or 
 Moveable.super.move();
+```
+
+## Static Methods for Interfacess
+- Part of interface, we can’t use it for implementation class objects.
+- Good for providing utility methods, for example null check, collection sorting etc.
+- Helps us in providing security by not allowing implementation classes to override them.
+- We can’t define interface static method for Object class methods, we will get compiler error as “This static method cannot hide the instance method from Object”. This is because it’s not allowed in java, since Object is the base class for all the classes and we can’t have one class level static method and another instance method with same signature.
+- We can use java interface static methods to remove utility classes such as Collections and move all of it’s static methods to the corresponding interface, that would be easy to find and use.
+
+e.g.
+```java
+public interface MyData {
+
+	default void print(String str) {
+		if (!isNull(str))
+			System.out.println("MyData Print::" + str);
+	}
+
+	static boolean isNull(String str) {
+		System.out.println("Interface Null Check");
+
+		return str == null ? true : "".equals(str) ? true : false;
+	}
+}
 ```
 
 ## Lambda expressions
