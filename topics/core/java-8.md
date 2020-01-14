@@ -361,11 +361,19 @@ Predicate<String> isNotEmpty = isEmpty.negate();
 Functions accept one argument and produce a result. Default methods can be used to chain multiple functions together (compose, andThen).
 
 ```java
-Function<String, Integer> toInteger = Integer::valueOf;
-Function<String, String> backToString = toInteger.andThen(String::valueOf);
+Function<Integer, Integer> times2 = e -> e * 2;
+Function<Integer, Integer> squared = e -> e * e;  
 
-backToString.apply("123");     // "123"
+times2.compose(squared).apply(4);  
+// Returns 32
+
+times2.andThen(squared).apply(4);  
+// Returns 64
 ```
+the difference between compose and andThen is the order they execute the functions. While the compose function executes the caller last and the parameter first, the andThen executes the caller first and the parameter last.
+
+**BiFunction** takes **two arguments**, it only offers the andThen function. You can't put the result of a function into a function that takes two arguments, hence the lack of the compose function
+
 
 ### Suppliers
 
