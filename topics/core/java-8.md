@@ -97,6 +97,16 @@ Moveable.super.move();
 - Multiple parameters are enclosed in mandatory parentheses and separated by commas. Empty parentheses are used to represent an empty set of parameters.
 - When there is a single parameter, if its type is inferred, it is not mandatory to use parentheses. e.g. a -> return a*a.
 - The body of the lambda expressions can contain zero, one or more statements. e.g (parameters) -> { statements; } 
+
+**Matching Lambdas to Interfaces**
+
+A single method interface is also sometimes referred to as a functional interface. Matching a Java lambda expression against a functional interface is divided into these steps:
+
+- Does the interface have only one abstract (unimplemented) method?
+- Does the parameters of the lambda expression match the parameters of the single method?
+- Does the return type of the lambda expression match the return type of the single method?
+If the answer is yes to these three questions, then the given lambda expression is matched successfully against the interface.
+
 Let's start with a simple example of how to sort a list of strings in prior versions of Java:
 
 ```java
