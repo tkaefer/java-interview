@@ -147,9 +147,17 @@ List now has a `sort` method. Also the java compiler is aware of the parameter t
 
 ## Functional Interfaces
 
-How does lambda expressions fit into Java's type system? Each lambda corresponds to a given type, specified by an interface. A so called _functional interface_ must contain **exactly one abstract method** declaration. Each lambda expression of that type will be matched to this abstract method. Since default methods are not abstract you're free to add default methods to your functional interface.
-
-We can use arbitrary interfaces as lambda expressions as long as the interface only contains one abstract method. To ensure that your interface meet the requirements, you should add the `@FunctionalInterface` annotation. The compiler is aware of this annotation and throws a compiler error as soon as you try to add a second abstract method declaration to the interface.
+- Permits exactly one abstract method inside them.
+- Also called **Single Abstract Method interfaces (SAM Interfaces)**.
+- functional interfaces can be represented using lambda expressions, method reference and constructor references as well
+- Since default methods are not abstract you're free to add default methods to your functional interface.
+- We can use arbitrary interfaces as lambda expressions as long as the interface only contains one abstract method. 
+- To ensure that your interface meet the requirements, you should add the `@FunctionalInterface` annotation. 
+- The compiler is aware of this annotation and throws a compiler error as soon as you try to add a second abstract method declaration to the interface.
+- Remove `@FunctionalInterface` annotation then we are allowed to add another abstract method, but it will make the interface non-functional interface.
+- Free to add default methods to your functional interface as many as you like.
+- A functional interface is valid even if the @FunctionalInterface annotation would be omitted. It is only for informing the compiler to enforce single abstract method inside interface.
+- If an interface declares an abstract method overriding one of the public methods of java.lang.Object, that also does not count toward the interface’s abstract method count since any implementation of the interface will have an implementation from java.lang.Object or elsewhere. e.g. Comparator is a functional interface even though it declared two abstract methods. Why? Because one of these abstract methods “equals()” which has signature equal to public method in Object class.
 
 Example:
 
