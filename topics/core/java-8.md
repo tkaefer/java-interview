@@ -158,7 +158,7 @@ List now has a `sort` method. Also the java compiler is aware of the parameter t
 - Free to add default methods to your functional interface as many as you like.
 - A functional interface is valid even if the @FunctionalInterface annotation would be omitted. It is only for informing the compiler to enforce single abstract method inside interface.
 - If an interface declares an abstract method overriding one of the public methods of java.lang.Object, that also does not count toward the interface’s abstract method count since any implementation of the interface will have an implementation from java.lang.Object or elsewhere. e.g. Comparator is a functional interface even though it declared two abstract methods. Why? Because one of these abstract methods “equals()” which has signature equal to public method in Object class.
-
+- Functional Interfaces in java are : ***Runnable, Comparable.
 Example:
 
 ```java
@@ -174,7 +174,7 @@ Integer converted = converter.convert("123");
 System.out.println(converted);    // 123
 ```
 
-Keep in mind that the code is also valid if the `@FunctionalInterface` annotation would be omitted.
+
 
 
 ## Method and Constructor References
