@@ -436,9 +436,48 @@ Company company = companyOptional.orElseThrow(IllegalStateException::new);
 
 ## Streams
 
-A `java.util.Stream` represents a sequence of elements on which one or more operations can be performed. Stream operations are either _intermediate_ or _terminal_. While terminal operations return a result of a certain type, intermediate operations return the stream itself so you can chain multiple method calls in a row. Streams are created on a source, e.g. a `java.util.Collection` like lists or sets (maps are not supported). Stream operations can either be executed sequentially or parallely.
+- A `java.util.Stream` represents a sequence of elements on which one or more operations can be performed. 
+- Stream operations are either _intermediate_ or _terminal_. While terminal operations return a result of a certain type, intermediate operations return the stream itself so you can chain multiple method calls **(called as pipe-lining)** in a row. 
+- Streams are created on a source, e.g. a `java.util.Collection` like lists or sets (maps are not supported). Stream operations can either be executed sequentially or parallely.
+- Collection is an in-memory data structure where as Stream is a conceptually fixed data structure, in which elements are computed on demand. 
+- Not a data structure
+- Designed for lambdas
+- Do not support indexed access
+- Can easily be outputted as arrays or lists
+- Lazy access supported
+- Parallelizable
 
-> Streams are extremely powerful, so I wrote a separate [Java 8 Streams Tutorial](http://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/). **You should also check out [Sequency](https://github.com/winterbe/sequency) as a similiar library for the web.**
+**Intermediate Operations**
+
+- filter() : Returns a stream consisting of the elements of this stream that match the given predicate.
+- map() :  Converts Stream<X> to Stream<Y>. For each X, a Y is created and put in new stream.
+- flatMap() : Stream.flatMap() helps in converting Collection<Collection<T>> to Collection<T>. i.e flatMap() = map() + Flattening
+- distinct() :  Method to filter or collect all distinct elements from a collection.
+- sorted() : Method to sort a stream of elements in their natural order and also according to the provided Comparator
+- peek() : Useful thing peek is to find out whether a stream element has been processed. Without any terminal operation does nothing
+- limit() :limit(N) method returns first N elements in the encounter order. short-circuiting intermediate operation
+- skip() : returns a stream consisting of the remaining elements of the stream after discarding the first 'n' elements of the stream in the encounter order. stateful intermediate operation.
+
+**Terminal Operations**
+
+- forEach() : traverse all the elements of stream and performs an action for each element of this stream.(Unordered)
+- forEachOrdered() : Taverse all the elements in the encounter order of the stream if the stream has a defined encounter order.
+- toArray() : convert stream to array using Stream.toArray() 
+- reduce() : perform a reduction on the elements of the stream, using an associative accumulation function, and return an Optional.
+- collect() :  method to get List, Map or Set from stream
+- min() : Smallest element in the stream according to the comparator provided in its argument. throw NullPointerException if null.
+- max() : largest element in the stream according to the comparator provided in its argument. throw NullPointerException if null.
+- count() : count the number of elements in stream. use either the Stream.count() or Collectors.counting() methods.
+- anyMatch() : terminal-short-circuiting operation, used to check if the *stream contains any matching element* with provided predicate.
+- allMatch() : short-circuiting terminal operation, used to check if *all the elements of the stream* match the provided predicate.
+- noneMatch() : short-circuiting terminal operation which is used to check if *no element of the stream* match the provided predicate.
+- findFirst() : returns an Optional describing the first element of this stream.
+- findAny() : Same as findFirst but does not offer any guarantee of that it will return always 1st element in case of parallel.
+
+**Java 8 Stream API Limitations**
+- Stateless lambda expressions: If you are using parallel stream and lambda expressions are stateful, it can result in random responses.
+- Once a Stream is consumed, it can’t be used later on. 
+- There are a lot of methods in Stream API and the most confusing part is the overloaded methods. It makes the learning curve time taking.
 
 Let's first look how sequential streams work. First we create a sample source in form of a list of strings:
 
@@ -458,7 +497,9 @@ Collections in Java 8 are extended so you can simply create streams either by ca
 
 ### Filter
 
-Filter accepts a predicate to filter all elements of the stream. This operation is _intermediate_ which enables us to call another stream operation (`forEach`) on the result. ForEach accepts a consumer to be executed for each element in the filtered stream. ForEach is a terminal operation. It's `void`, so we cannot call another stream operation.
+- Filter accepts a predicate to filter all elements of the stream.
+- This operation is _intermediate_ which enables us to call another stream operation (`forEach`) on the result. 
+- ForEach accepts a consumer to be executed for each element in the filtered stream. ForEach is a terminal operation. It's `void`, so we cannot call another stream operation.
 
 ```java
 stringCollection
@@ -471,7 +512,8 @@ stringCollection
 
 ### Sorted
 
-Sorted is an _intermediate_ operation which returns a sorted view of the stream. The elements are sorted in natural order unless you pass a custom `Comparator`.
+- Sorted is an _intermediate_ operation which returns a sorted view of the stream. 
+- The elements are sorted in natural order unless you pass a custom `Comparator`.
 
 ```java
 stringCollection
