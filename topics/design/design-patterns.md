@@ -7,10 +7,10 @@
 
 ### Creational
 
-- [Singleton](https://howtodoinjava.com/design-patterns/creational/singleton-design-pattern-in-java/) -  Single instance of class. Either Eager (static) or Lazy (broken pre-JDK5). Eg: Logger, Configurer
-- Factory - Create types of instances. Eg: Trade type (Bonds, Bill, Notes)
+- Singleton-  Single instance of class. Either Eager (static) or Lazy (broken pre-JDK5). Eg: Logger, Configurer
+- Factory - Create types of instances. Centralized and not exposed to composing classes Eg: Trade type (Bonds, Bill, Notes)
 - Abstract Factory - Factory of factories of related products. Eg: Trade Type (GermanBond, EuroBond, GermanBill, EuroBill)
-- Builder - Eg: StringBuilder, PizzaMaker
+- Builder -alternative way to construct complex objects.Control on object creation procces.creating immutable classes Eg: StringBuilder
 - Prototype - Copying costly-creation objects. Classes should implement clone or similar method.
 - Object pool - Re-use instances. Eg: Threadpool
 
