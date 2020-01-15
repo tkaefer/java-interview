@@ -16,7 +16,7 @@
 
 ### Behavioral
 
-- Observer - Reactive streams.
+- Observer - Reactive streams. publish-subscribe pattern
 - Strategy - Encapsulate algorithms and execute either. Eg: Trading strategy, select one and execute.
 - Command - Object encapsulates action with common interface which executor calls. Eg: Remote click.
 - State - Behavior based on current state of object.
