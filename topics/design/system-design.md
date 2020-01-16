@@ -4,10 +4,15 @@
 
 * [Caching](#caching) 
 * [Message Broker](#message-broker)
-* [Search Engines](#search-engines)
+* [Load Balancer](#load-balancer)
 * [Containers](#container)
+* [Search Engines](#search-engines)
 * [Web Servers](#web-server)
-* [Web Servers](#web-server)
+* [Service Discovery](#service-discovery)
+* [Reverse Proxy](#reverse-proxy)
+* [API Gateway](#api-gateway)
+* [Identity Provider](#identity-provider)
+
 
 
 ## [Caching](https://aws.amazon.com/caching/)
