@@ -18,7 +18,7 @@
  - Reduce the Load on the Backend.
  - Eliminate Database Hotspots.
   
- <image src="../../images/Cachinng.png">
+ <image src="../../images/caching-types.png">
  
  [**Redis**](https://aws.amazon.com/redis/) 
    - Stands for Remote Dictionary Server
