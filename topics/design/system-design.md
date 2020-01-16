@@ -41,6 +41,10 @@
   - Create Redis repository by extending CRUDRepository and Entity with @RedisHash and @id Annotation.
   - RedisTemplate provides operational views like **HashOperations, ListOperations, SetOperations** etc.
   - Redis Messaging (Pub/Sub), Redis Streams and Reactive Redis support.
+ **Performance Tuning for Redis**
+  - https://medium.com/@abhishekbhardwaj510/redis-best-practices-and-performance-tuning-c48611388bbc
+  - https://www.objectrocket.com/blog/how-to/10-quick-tips-about-redis/
+  
   
 
  
