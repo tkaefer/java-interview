@@ -52,7 +52,7 @@
   - Significantly simplify coding of decoupled applications, while improving performance, reliability and scalability. 
   - Asynchronous service-to-service communication used in serverless and microservices architectures.
   
-   **Kafka As Messaging System**
+   [**Kafka As Messaging System**](https://content.pivotal.io/blog/understanding-when-to-use-rabbitmq-or-apache-kafka)
    - Distributed, partitioned, replicated commit log service. It provides the functionality of a messaging system, but with a unique design.
    - Distributed **publish-subscribe messaging** system.
    - Kafka scales nicely up to **100,000 msg/sec even on a single server**.
@@ -66,7 +66,7 @@
    - Durable message store and clients can get a **replay** of the event stream on demand.
    - **Zookeeper** is a configuration service / naming registry for distributed systems.Managing and coordinating Kafka broker. 
    
-   **Apache Kafka with Spring**
+   [**Apache Kafka with Spring**](https://www.baeldung.com/spring-kafka)
    - Spring Kafka brings the simple and typical Spring template programming model with a KafkaTemplate and Message-driven POJOs via @KafkaListener annotation.
    - Add the **spring-kafka** dependency to our pom.xml
    - Configure a ProducerFactory which sets the strategy for creating Kafka Producer instances. 
