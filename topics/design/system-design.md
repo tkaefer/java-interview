@@ -47,6 +47,38 @@
   
   
 
+ ## Messaging System
+  - Provide communication and coordination for these distributed applications.
+  - Significantly simplify coding of decoupled applications, while improving performance, reliability and scalability. 
+  - Asynchronous service-to-service communication used in serverless and microservices architectures.
+  
+   **Kafka As Messaging System**
+   - Distributed, partitioned, replicated commit log service. It provides the functionality of a messaging system, but with a unique design.
+   - Distributed **publish-subscribe messaging** system.
+   - Kafka scales nicely up to **100,000 msg/sec even on a single server**.
+   - To a topic, messages published are distributed into partitions.
+   - In partition, messages are represented as a log stream.
+   - The consumer is responsible for moving through this stream.
+   - Messages from each partition are processed in-order only.
+   - Employs a dumb broker and uses smart consumers to read its buffer.
+   - Retains all messages for a **set amount of time**, and consumers are responsible to track their location in each log.
+   - Use cases like Website Activity Tracking, Metrics, Log Aggregation, Stream Processing, Event Sourcing and Commit logs.
+   - Durable message store and clients can get a **replay** of the event stream on demand.
+   - **Zookeeper** is a configuration service / naming registry for distributed systems.Managing and coordinating Kafka broker. 
+   
+   **Apache Kafka with Spring**
+   - Spring Kafka brings the simple and typical Spring template programming model with a KafkaTemplate and Message-driven POJOs via @KafkaListener annotation.
+   - Add the **spring-kafka** dependency to our pom.xml
+   - Configure a ProducerFactory which sets the strategy for creating Kafka Producer instances. 
+   - Setting BOOTSTRAP_SERVERS_CONFIG, KEY_SERIALIZER_CLASS_CONFIG, VALUE_SERIALIZER_CLASS_CONFIG or JsonSerializer
+   - **KafkaTemplate** which wraps a Producer instance and provides convenience methods for sending messages to Kafka topics.
+   - Send messages using the KafkaTemplate class **kafkaTemplate.send(topicName, msg);**
+   - Configure a **ConsumerFactory** and a **KafkaListenerContainerFactory**. 
+   - POJO based consumers can be configured using **@KafkaListener annotation**.
+   - **@EnableKafka** annotation is required on the configuration class to enable detection of @KafkaListener annotation on spring managed beans. It is only required for Consumer not producers.
+   - Kafka Consumer API is not thread safe. **ConcurrentKafkaListenerContainerFactory** api provides concurrent way of using Kafka Consumer API along with setting other kafka consumer properties.
+   - @KafkaListener(topics = "topicName", groupId = "foo")
+   - Multiple listeners can be implemented for a topic, each with a different group Id. 
  
     
     
