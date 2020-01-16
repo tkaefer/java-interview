@@ -4,6 +4,7 @@
 
 - [Design patterns explained too simply](https://github.com/kamranahmedse/design-patterns-for-humans)
 - [Examples of design patterns in Java libraries](http://stackoverflow.com/questions/1673841/examples-of-gof-design-patterns-in-javas-core-libraries/2707195#2707195)
+- [Full Stack Software Design and Architecture](https://www.freecodecamp.org/news/software-design/)
 
 ### Creational
 
