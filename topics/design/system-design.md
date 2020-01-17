@@ -8,10 +8,9 @@
 * [Containers](#container)
 * [Search Engines](#search-engines)
 * [Web Servers](#web-server)
-* [Service Discovery](#service-discovery)
-* [Reverse Proxy](#reverse-proxy)
 * [API Gateway](#api-gateway)
 * [Identity Provider](#identity-provider)
+* [Netflix OSS](#netflix-oss)
 
 
 
@@ -86,5 +85,20 @@
    - Multiple listeners can be implemented for a topic, each with a different group Id. 
  
     
-    
+ ## Netflix OSS
+  
+  **Service Discovery**
+   - Eureka instances can be registered and clients can discover the instances using Spring-managed beans.
+   - An embedded Eureka server can be created with declarative Java configuration.
+ 
+  **Circuit Breaker**
+   - Hystrix clients can be built with a simple annotation-driven method decorator.
+   - Embedded Hystrix dashboard with declarative Java configuration.
+   
+   **Router and Filter**
+   - Automatic regsitration of Zuul filters, and a simple convention over configuration approach to reverse proxy creation.
+   
+   **Client Side Load Balancer**
+   - Ribbon
+
     
