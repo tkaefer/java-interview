@@ -42,5 +42,9 @@
 - @ComponentScan : enable @Component scan.
 - @SpringBootConfiguration : register extra beans in the context. Automatically located. Alternative to @Configuration. 
 - @ImportAutoConfiguration : only runs the configuration classes that we provide in the annotation. unlike EnableAutoConfiguration.
-- 
-- 
+- @AutoConfigureBefore, @AutoConfigureAfter : Configuration needs to be applied in a specific order (before of after).
+- @AutoConfigureOrder : Order certain auto-configurations that should not have any direct knowledge of each other.
+- @Conditional : register a bean only when the condition meets.
+- @ConditionalOnBean, @ConditionalOnMissingBean : bean included on presence or absence of specific beans. accepts by type or by name.
+- @ConditionalOnClass, @ConditionalOnMissingClass : Configuration classes be included based on the presence or absence of specific classes. 
+
