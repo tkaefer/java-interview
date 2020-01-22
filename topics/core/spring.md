@@ -34,3 +34,13 @@
 - Include dependencies that are not used thereby causing huge deployment file size. 
 - Turning legacy spring applications into Spring boot requires a lot of effort and a time-consuming process. 
 - Limited control of your application.
+
+### Spring Boot Annotations ###
+-  spring boot annotations are mostly placed in org.springframework.boot.autoconfigure and org.springframework.boot.autoconfigure.condition packages. 
+- @SpringBootApplication : The java class annotated with @SpringBootApplication is the main class of a Spring Boot application and application starts from here.
+- @EnableAutoConfiguration : enable auto-configuration mechanism. SpringFactoriesLoader mechanism. Are @Conditional beans.
+- @ComponentScan : enable @Component scan.
+- @SpringBootConfiguration : register extra beans in the context. Automatically located. Alternative to @Configuration. 
+- @ImportAutoConfiguration : only runs the configuration classes that we provide in the annotation. unlike EnableAutoConfiguration.
+- 
+- 
