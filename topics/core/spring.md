@@ -5,6 +5,7 @@
 
 * [Spring Boot](#spring-boot) 
 * [Spring Core](#spring-core)
+* [Spring Web](#spring-web)
 * [Spring Security](#spring-security)
 * [Spring Data](#spring-data)
 * [Spring Cloud](#spring-cloud)
@@ -47,4 +48,8 @@
 - @Conditional : register a bean only when the condition meets.
 - @ConditionalOnBean, @ConditionalOnMissingBean : bean included on presence or absence of specific beans. accepts by type or by name.
 - @ConditionalOnClass, @ConditionalOnMissingClass : Configuration classes be included based on the presence or absence of specific classes. 
+- @ConditionalOnNotWebApplication, @ConditionalOnWebApplication : Configuration be included depending on whether the application is a “web application” or not. A web application uses Spring WebApplicationContext, defines a session scope or StandardServletEnvironment.
+- @ConditionalOnProperty: configuration be included based on the presence and value of a Spring Environment property.
+- @ConditionalOnResource: configuration be included only when a specific resource is present in the classpath.
+- 
 
