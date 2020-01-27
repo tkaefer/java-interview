@@ -72,8 +72,7 @@ formula.sqrt(16);           // 4.0
 The formula is implemented as an anonymous object. The code is quite verbose: 6 lines of code for such a simple calculation of `sqrt(a * 100)`. 
 - Default methods will help us in extending interfaces without having the fear of breaking implementation classes.
 - Bridge down the differences between interfaces and abstract classes.
-- Help us in avoiding utility classes, such as all the Collections class method can be provided in the interfaces itself.
-- **Major reason for introducing default methods** in interfaces is to enhance the Collections API in Java 8 to support lambda expressions.
+- **Major reason for introducing default methods** in interfaces is to enhance the Collections API in Java 8 to support lambda expressions. Example: -forEach, filter, map and others which are added to the Iterable interface with default implementations (Defender methods).
 - Default methods are also referred to as **Defender Methods or Virtual extension methods**.
 
 **How conflicts are resolved while calling default methods?**
