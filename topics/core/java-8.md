@@ -5,9 +5,9 @@
 
 * [Default Methods for Interfaces](#default-methods-for-interfaces)
 * [Static Methods for Interfaces](#static-methods-for-interfaces)
-* [Lambda expressions](#lambda-expressions)
 * [Functional Interfaces](#functional-interfaces)
 * [Method and Constructor References](#method-and-constructor-references)
+* [Lambda expressions](#lambda-expressions)
 * [Lambda Scopes](#lambda-scopes)
   * [Accessing local variables](#accessing-local-variables)
   * [Accessing fields and static variables](#accessing-fields-and-static-variables)
@@ -109,65 +109,6 @@ public interface MyData {
 }
 ```
 
-## Lambda expressions
-- Lambda expression (or function) is just an anonymous function, i.e., a function with no name and without being bounded to an identifier.
-- Visualization of functional programming in the java object oriented world.
-- Sequential and parallel execution can be achieved by passing behavior into methods.
-- Java language provide support for using lambda expressions only with functional interfaces.
-- Reduced Lines of Code
-- Higher Efficiency (Utilizing Multicore CPU’s)
-- A lambda expression can have zero, one or more parameters.
-- The type of the parameters can be explicitly declared or it can be inferred from the context.
-- Multiple parameters are enclosed in mandatory parentheses and separated by commas. Empty parentheses are used to represent an empty set of parameters.
-- When there is a single parameter, if its type is inferred, it is not mandatory to use parentheses. e.g. a -> return a*a.
-- The body of the lambda expressions can contain zero, one or more statements. e.g (parameters) -> { statements; } 
-
-**Matching Lambdas to Interfaces**
-
-A single method interface is also sometimes referred to as a functional interface. Matching a Java lambda expression against a functional interface is divided into these steps:
-
-- Does the interface have only one abstract (unimplemented) method?
-- Does the parameters of the lambda expression match the parameters of the single method?
-- Does the return type of the lambda expression match the return type of the single method?
-If the answer is yes to these three questions, then the given lambda expression is matched successfully against the interface.
-
-Let's start with a simple example of how to sort a list of strings in prior versions of Java:
-
-```java
-List<String> names = Arrays.asList("peter", "anna", "mike", "xenia");
-
-Collections.sort(names, new Comparator<String>() {
-    @Override
-    public int compare(String a, String b) {
-        return b.compareTo(a);
-    }
-});
-```
-
-The static utility method `Collections.sort` accepts a list and a comparator in order to sort the elements of the given list. You often find yourself creating anonymous comparators and pass them to the sort method.
-
-Instead of creating anonymous objects all day long, Java 8 comes with a much shorter syntax, **lambda expressions**:
-
-```java
-Collections.sort(names, (String a, String b) -> {
-    return b.compareTo(a);
-});
-```
-
-As you can see the code is much shorter and easier to read. But it gets even shorter:
-
-```java
-Collections.sort(names, (String a, String b) -> b.compareTo(a));
-```
-
-For one line method bodies you can skip both the braces `{}` and the `return` keyword. But it gets even shorter:
-
-```java
-names.sort((a, b) -> b.compareTo(a));
-```
-
-List now has a `sort` method. Also the java compiler is aware of the parameter types so you can skip them as well. Let's dive deeper into how lambda expressions can be used in the wild.
-
 
 ## Functional Interfaces
 
@@ -260,6 +201,67 @@ Person person = personFactory.create("Peter", "Parker");
 ```
 
 We create a reference to the Person constructor via `Person::new`. The Java compiler automatically chooses the right constructor by matching the signature of `PersonFactory.create`.
+
+
+## Lambda expressions
+- Lambda expression (or function) is just an anonymous function, i.e., a function with no name and without being bounded to an identifier.
+- Visualization of functional programming in the java object oriented world.
+- Sequential and parallel execution can be achieved by passing behavior into methods.
+- Java language provide support for using lambda expressions only with functional interfaces.
+- Reduced Lines of Code
+- Higher Efficiency (Utilizing Multicore CPU’s)
+- A lambda expression can have zero, one or more parameters.
+- The type of the parameters can be explicitly declared or it can be inferred from the context.
+- Multiple parameters are enclosed in mandatory parentheses and separated by commas. Empty parentheses are used to represent an empty set of parameters.
+- When there is a single parameter, if its type is inferred, it is not mandatory to use parentheses. e.g. a -> return a*a.
+- The body of the lambda expressions can contain zero, one or more statements. e.g (parameters) -> { statements; } 
+
+**Matching Lambdas to Interfaces**
+
+A single method interface is also sometimes referred to as a functional interface. Matching a Java lambda expression against a functional interface is divided into these steps:
+
+- Does the interface have only one abstract (unimplemented) method?
+- Does the parameters of the lambda expression match the parameters of the single method?
+- Does the return type of the lambda expression match the return type of the single method?
+If the answer is yes to these three questions, then the given lambda expression is matched successfully against the interface.
+
+Let's start with a simple example of how to sort a list of strings in prior versions of Java:
+
+```java
+List<String> names = Arrays.asList("peter", "anna", "mike", "xenia");
+
+Collections.sort(names, new Comparator<String>() {
+    @Override
+    public int compare(String a, String b) {
+        return b.compareTo(a);
+    }
+});
+```
+
+The static utility method `Collections.sort` accepts a list and a comparator in order to sort the elements of the given list. You often find yourself creating anonymous comparators and pass them to the sort method.
+
+Instead of creating anonymous objects all day long, Java 8 comes with a much shorter syntax, **lambda expressions**:
+
+```java
+Collections.sort(names, (String a, String b) -> {
+    return b.compareTo(a);
+});
+```
+
+As you can see the code is much shorter and easier to read. But it gets even shorter:
+
+```java
+Collections.sort(names, (String a, String b) -> b.compareTo(a));
+```
+
+For one line method bodies you can skip both the braces `{}` and the `return` keyword. But it gets even shorter:
+
+```java
+names.sort((a, b) -> b.compareTo(a));
+```
+
+List now has a `sort` method. Also the java compiler is aware of the parameter types so you can skip them as well. Let's dive deeper into how lambda expressions can be used in the wild.
+
 
 ## Lambda Scopes
 
