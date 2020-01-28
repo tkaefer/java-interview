@@ -154,6 +154,7 @@ System.out.println(converted);   // 123
 
 Java 8 enables you to pass references of methods or constructors via the `::` keyword. The above example shows how to reference a static method. But we can also reference object methods:
 
+<image src="../../images/Method_Consrtuctor_References.png">
 ```java
 class Something {
     String startsWith(String s) {
