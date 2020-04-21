@@ -84,7 +84,27 @@
    - @KafkaListener(topics = "topicName", groupId = "foo")
    - Multiple listeners can be implemented for a topic, each with a different group Id. 
  
-    
+ ## [Load Balancer]  
+   - Distibute incomming traffic to the network by efficiently distributing accoss multiple servers
+   - Reliability and High Availability is maintained by redirecting requests only to the service which are available.
+   - Ease of use in adding and removing servers in the netowrk as per demand.
+   
+  **Load Balancing Algo**
+   - Round Robin : Sequential Request Distribution
+   - Least Connections : Request Sent to the least used server in the network
+   - IP Hash : Request Sent to the Server based on Client IP
+  
+  **Sticky Sessions a.k.a., Session Persistence**
+   - Process in which a load balancer creates an affinity between a client and a specific network server for the duration of a session,      (i.e., the time a specific IP spends on a website).
+   
+  **Client Side Load Balancing**
+    In 'client side load balancing' the caller of the application (aka the client) handles the load balancing. ... Now all that the client has to do - is delegate the request to this library and it shall invoke one of the application nodes, based on the chosen load balancing algorithm. Example **Ribbion**
+   
+   **Server Side Load Balancing**
+   
+   
+     
+  
  ## Netflix OSS
   
   **Service Discovery**
