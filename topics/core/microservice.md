@@ -70,16 +70,17 @@ The articles listed here present a structured approach for designing, building, 
 
 **Domain analysis.** To avoid some common pitfalls when designing microservices, use domain analysis to define your microservice boundaries. Follow these steps:
 
-- Use domain analysis to model microservices.(https://docs.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis)
-- Use tactical DDD to design microservices.
-- Identify microservice boundaries.
-Design the services. Microservices require a different approach to designing and building applications. For more information, see Designing a microservices architecture.
+- [Use domain analysis to model microservices.](https://docs.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis)
+- [Use tactical DDD to design microservices.](https://docs.microsoft.com/en-us/azure/architecture/microservices/model/tactical-ddd)
+- [Identify microservice boundaries.](https://docs.microsoft.com/en-us/azure/architecture/microservices/model/microservice-boundaries)
 
-Operate in production. Because microservices architectures are distributed, you must have robust operations for deployment and monitoring.
+**Design the services.** Microservices require a different approach to designing and building applications. For more information, see [Designing a microservices architecture.](https://docs.microsoft.com/en-us/azure/architecture/microservices/design/)
 
-CI/CD for microservices architectures
-Build a CI/CD pipeline for microservices on Kubernetes
-Monitor microservices running on Azure Kubernetes Service (AKS)
+**Operate in production.** Because microservices architectures are distributed, you must have robust operations for deployment and monitoring.
+
+- [CI/CD for microservices architectures](https://docs.microsoft.com/en-us/azure/architecture/microservices/ci-cd)
+- [Build a CI/CD pipeline for microservices on Kubernetes](https://docs.microsoft.com/en-us/azure/architecture/microservices/ci-cd-kubernetes)
+- [Monitor microservices running on Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/architecture/microservices/logging-monitoring)
 
 
 
