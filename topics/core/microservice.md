@@ -64,6 +64,24 @@ Model services around the business domain.
 
 **Isolate failures.** Use resiliency strategies to prevent failures within a service from cascading. See Resiliency patterns and Designing reliable applications.
 
+## Process for building a microservices architecture
+
+The articles listed here present a structured approach for designing, building, and operating a microservices architecture.
+
+**Domain analysis.** To avoid some common pitfalls when designing microservices, use domain analysis to define your microservice boundaries. Follow these steps:
+
+- Use domain analysis to model microservices.(https://docs.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis)
+- Use tactical DDD to design microservices.
+- Identify microservice boundaries.
+Design the services. Microservices require a different approach to designing and building applications. For more information, see Designing a microservices architecture.
+
+Operate in production. Because microservices architectures are distributed, you must have robust operations for deployment and monitoring.
+
+CI/CD for microservices architectures
+Build a CI/CD pipeline for microservices on Kubernetes
+Monitor microservices running on Azure Kubernetes Service (AKS)
+
+
 
 ![image](https://user-images.githubusercontent.com/29313557/113444077-ccb91000-9410-11eb-8b96-d005534ad156.png)
 
