@@ -70,9 +70,11 @@ The articles listed here present a structured approach for designing, building, 
 
 **Domain analysis.** To avoid some common pitfalls when designing microservices, use domain analysis to define your microservice boundaries. Follow these steps:
 
-- [Use domain analysis to model microservices.](https://docs.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis)
+- [Use domain analysis to model microservices.](https://docs.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis) In strategic DDD, you are defining the large-scale structure of the system. Strategic DDD helps to ensure that your architecture remains focused on business capabilities.
 - [Use tactical DDD to design microservices.](https://docs.microsoft.com/en-us/azure/architecture/microservices/model/tactical-ddd)
 - [Identify microservice boundaries.](https://docs.microsoft.com/en-us/azure/architecture/microservices/model/microservice-boundaries)
+
+![image](https://user-images.githubusercontent.com/29313557/113449093-bca62e00-941a-11eb-8b0c-5205d1d58074.png)
 
 **Design the services.** Microservices require a different approach to designing and building applications. For more information, see [Designing a microservices architecture.](https://docs.microsoft.com/en-us/azure/architecture/microservices/design/)
 
