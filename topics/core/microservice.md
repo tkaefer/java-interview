@@ -72,7 +72,7 @@ The articles listed here present a structured approach for designing, building, 
 
 - [Use domain analysis to model microservices.](https://docs.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis) In strategic DDD, you are defining the large-scale structure of the system. Strategic DDD helps to ensure that your architecture remains focused on business capabilities. During the strategic phase of DDD, you are mapping out the business domain and defining bounded contexts for your domain models.
 - [Use tactical DDD to design microservices.](https://docs.microsoft.com/en-us/azure/architecture/microservices/model/tactical-ddd) Tactical DDD is when you define your domain models with more precision. Within a bounded context, apply tactical DDD patterns to define entities(object with a unique identity), aggregates(onsistency boundary around one or more entities), and domain services (encapsulate domain logic, and application services).
-- [Identify microservice boundaries.](https://docs.microsoft.com/en-us/azure/architecture/microservices/model/microservice-boundaries)
+- [Identify microservice boundaries.](https://docs.microsoft.com/en-us/azure/architecture/microservices/model/microservice-boundaries) Deriving microservices from the domain model
 
 ![image](https://user-images.githubusercontent.com/29313557/113449093-bca62e00-941a-11eb-8b0c-5205d1d58074.png)
 
