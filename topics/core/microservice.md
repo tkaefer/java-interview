@@ -77,6 +77,12 @@ The articles listed here present a structured approach for designing, building, 
 ![image](https://user-images.githubusercontent.com/29313557/113449093-bca62e00-941a-11eb-8b0c-5205d1d58074.png)
 
 **Design the services.** Microservices require a different approach to designing and building applications. For more information, see [Designing a microservices architecture.](https://docs.microsoft.com/en-us/azure/architecture/microservices/design/)
+- Compute options for microservices
+- Interservice communication
+- API design
+- API gateways
+- Data considerations
+- Design patterns
 
 **Operate in production.** Because microservices architectures are distributed, you must have robust operations for deployment and monitoring.
 
