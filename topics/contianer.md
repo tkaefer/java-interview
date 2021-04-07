@@ -59,6 +59,108 @@ Some common operations you’ll need with Docker images include:
 - **Pushing a local image to the Docker registry:** You can push an image to Docker Hub or another registry to make it available for other users by running the docker push command. For example, to push the (latest) local version of my_repo to Docker Hub, make sure you’re logged in first by running **docker login**, then run:
 ```docker push username/my_repo```
 - **Searching for images:** You can search the Docker Hub for images relating to specific terms using **docker search**.  You can specify filters to the search, for example only list “official” repositories.
+## How to create a Docker Image?
+We have 2 ways to create a Docker Image:
+- Interactive Method
+  **Step 1) Pull the Base Image** : We first need an Image to run our docker container. We will use the latest Ubuntu docker image. To download or pull the image from DockerHub registry, docker pull can be used:
+  ```$ docker pull Ubuntu```
+  
+  ![image](https://user-images.githubusercontent.com/29313557/113879334-0a82b380-97d8-11eb-97c2-f6a3ff3f80aa.png)
+  
+  **Step2) Deploy the Container** : We will run a Docker container using the Ubuntu image that we pulled in the previous step. We will use the run command. The -it options instruct the container to launch in interactive mode and enable a terminal typing interface.
+  ```$ docker run -it --name <name of container> ubuntu```
+  ![image](https://user-images.githubusercontent.com/29313557/113879531-3bfb7f00-97d8-11eb-86bc-a0d59e326cbc.png)
+
+ **Step 3) Modify the Container** : Now we can do any changes we want. Here, we will be installing Nmap software in our container. As it is an Ubuntu image container, we will use apt-get command to install any software.
+ ```$ apt-get install nmap```
+ ![image](https://user-images.githubusercontent.com/29313557/113879637-59304d80-97d8-11eb-8445-4dcd4caf1539.png)
+
+Once you finish modifying the new container, exit out of it.
+```$ exit```
+
+We will need the CONTAINER ID to save the changes we have made to the existing image. Run the docker ps -a to list all the containers and copy the Container ID.
+```$ docker ps -a```
+
+![image](https://user-images.githubusercontent.com/29313557/113879773-80871a80-97d8-11eb-9b56-4c7421869d8e.png)
+
+**Step 4) Commit changes to Image**: Finally, we will create a new Image by committing the changes using the commit command.
+```$ docker images```
+![image](https://user-images.githubusercontent.com/29313557/113879893-9ac0f880-97d8-11eb-8352-d123a10a9743.png)
+  
+- Dockerfile Method
+ A Dockerfile is a document file that contains collections of commands that will be executed in the docker environment for building a new docker image. This file is written in  YAML Language. These images consist of read-only layers each of which represents a Dockerfile instruction. It is a more systematic, flexible and efficient way to build a Docker image.
+![image](https://user-images.githubusercontent.com/29313557/113880002-b62c0380-97d8-11eb-83bc-549d9fca5fc2.png)
+The following table shows the commonly used Dockerfile statements:
+![image](https://user-images.githubusercontent.com/29313557/113878867-9ea04b00-97d7-11eb-9e48-a10ba78f9d09.png)
+
+Example of a DockerFile
+```
+# Using the official Ubuntu as base
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install -y nginx
+COPY index.nginx-debian.html /var/www/html
+EXPOSE 80
+COPY [“./start.sh”, ”/root/start.sh”]
+ENTRYPOINT /root/start.sh
+```
+In this demo DockerFile,
+
+- The first line “#using the official Ubuntu as a base” is a comment. You can add comments to the Docker File with the help of the # command
+- The next line has to start with the **FROM** keyword. It tells docker, which base image is to be used. In our example, we are creating an image from the ubuntu image.
+- The **RUN** command is used to run instructions against the image. In our case, we first update our Ubuntu system and then install the Nginx server on our ubuntu image.
+- The **COPY** command is used to copy a file inside the /var/www/html folder.
+- The next command is **EXPOSE**, which is used to expose the port number.
+- The **ENTRYPOINT** command will run the /root/start.sh when the container starts.
+
+To build an image from the dockerfile, we use the build command:
+```
+$ docker image build 
+
+OR 
+
+$ docker build
+```
+![image](https://user-images.githubusercontent.com/29313557/113880386-13c05000-97d9-11eb-94f1-607d29b6e34b.png)
+
+Our image is successfully built and stored in the local repository. We can check it using the below commands:
+```
+$ docker images
+
+ OR 
+
+$ docker images ls
+```
+![image](https://user-images.githubusercontent.com/29313557/113880508-2e92c480-97d9-11eb-9c2d-f4a99258f745.png)
+
+
+- 
+
+## Best Practices for Building Images
+The following best practices are recommended when you build images by writing Dockerfiles:
+
+- **Containers should be ephemeral** in the sense that you can stop or delete a container at any moment and replace it with a new container from the Dockerfile with minimal set-up and configuration.  
+- Use a **.dockerignore** file to reduce image size and reduce build time by excluding files from the build context that are unnecessary for the build. The build context is the full recursive contents of the directory where the Dockerfile was when the image was built.
+- **Reduce image file sizes** (and attack surface) while keeping Dockerfiles readable by applying either a builder pattern or a multi-stage build  (available only in Docker 17.05 or higher).
+- With a **builder pattern**, you maintain two Dockerfiles – one to build an application inside the image and a second Dockerfile that includes only the resulting application binaries from the first image to generate a second, streamlined image that is production ready. This pattern requires a custom script in order to automatically apply the transformation from the “development” image to the “production” image (for an example, see the Docker documentation: Before Multi-Stage Builds ).
+- A **multi-stage build** allows you to use multiple FROM statements in a single Dockerfile and selectively copy artifacts from one stage to another, leaving behind everything you don’t want in the final image. You can, therefore, reduce image file sizes without the hassle of maintaining separate Dockerfiles and custom scripts when using the builder pattern.
+- **Don’t install unnecessary packages** when building images.
+- **Use multi-line commands instead of multiple RUN commands** for faster builds when possible (for example, when installing a list of packages).
+- **Sort multi-line lists of packages into alphanumerical order** to easily identify duplicates and make it easier to update and review the list.
+- **Enable content trust** when operating with a remote Docker registry so that you can only push, pull, run, or build trusted images which have been digitally signed to verify their integrity. When you use Docker with content trust, commands only operate on tagged images that have been digitally signed. Less trustworthy unsigned image tags are invisible when you enable content trust (off by default). To enable it, set the DOCKER_CONTENT_TRUST environment variable to 1. For further information see the Docker documentation:  Content trust in Docker.
+
+## Docker Administration
+- **Docker Configuration** — After installing Docker and starting Docker, the dockerd daemon runs with its default configuration. This page gathers resources on how to customize the configuration, Docker registry configuration, start the daemon manually, and troubleshoot and debug the daemon if run into issues.
+- **Collecting Docker Metrics** — In order to get as much efficiency out of Docker as possible, we need to track Docker metrics. Monitoring metrics is also important for troubleshooting problems. This page gathers resources on how to collect Docker metrics with tools like Prometheus, Grafana, InfluxDB and more.
+Starting and Restarting Docker Containers Automatically — Docker provides restart policies to control whether your containers start automatically when they exit, or when Docker restarts. Restart policies ensure that linked containers are started in the correct order. This page gathers resources about how to automatically start Docker container on boot or after server crash.
+- **Managing Container Resources** — Resource management for Docker containers is a huge requirement for production users. It is necessary for running multiple containers on a single host in an efficient way and to ensure that one container does not starve the others in terms of cpu, memory, io, or networking. This page gathers resources about how to improve Docker performance by managing it’s resources.
+- **Controlling Docker With systemd** — Systemd provides a standard process for controlling programs and processes on Linux hosts. One of the nice things about systemd is that it is a single command that can be used to manage almost all aspects of a process. This page gathers resources about how to use systemd with Docker daemon service.
+- **Docker CLI Commands** — There are a large number of Docker client CLI commands, which provide information relating to various Docker objects on a given Docker host or Docker Swarm cluster. Generally, this output is provided in a tabular format. This page gathers resources about how the Docker CLI Work, CLI Tips and Tricks and basic Docker CLI commands.
+- **Docker Logging** — Logs tell the full story of what is happening, or what happened at every layer of the stack. Whether it’s the application layer, the networking layer, the infrastructure layer, or storage, logs have all the answers. This page gathers resources about working with Docker logs, how to manage and implement Docker logs and more.
+Troubleshooting Docker Engine — Docker makes everything easier. But even with the easiest platforms, sometimes you run into problems. This page gathers resources about  how to diagnose and troubleshoot problems, send logs, and communicate with the Docker Engine.
+- **Docker Orchestration – Tools and Options** — To get the full benefit of Docker container, you need software to move containers around in response to auto-scaling events, a failure of the backing host, and deployment updates. This is container orchestration. This page gathers resources about Docker orchestration tools, fundamentals and best practices.
+
+
 
 # Container Orchestration 
 Container orchestration is a process that automates the deployment, management, scaling, networking, and availability of container-based applications.
