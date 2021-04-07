@@ -61,33 +61,41 @@ Some common operations you’ll need with Docker images include:
 - **Searching for images:** You can search the Docker Hub for images relating to specific terms using **docker search**.  You can specify filters to the search, for example only list “official” repositories.
 ## How to create a Docker Image?
 We have 2 ways to create a Docker Image:
-- Interactive Method
-  **Step 1) Pull the Base Image** : We first need an Image to run our docker container. We will use the latest Ubuntu docker image. To download or pull the image from DockerHub registry, docker pull can be used:
+ ### Interactive Method
+ **Step 1) Pull the Base Image** : We first need an Image to run our docker container. We will use the latest Ubuntu docker image. To download or pull the image from DockerHub registry, docker pull can be used:
+  
   ```$ docker pull Ubuntu```
   
   ![image](https://user-images.githubusercontent.com/29313557/113879334-0a82b380-97d8-11eb-97c2-f6a3ff3f80aa.png)
   
   **Step2) Deploy the Container** : We will run a Docker container using the Ubuntu image that we pulled in the previous step. We will use the run command. The -it options instruct the container to launch in interactive mode and enable a terminal typing interface.
+  
   ```$ docker run -it --name <name of container> ubuntu```
   ![image](https://user-images.githubusercontent.com/29313557/113879531-3bfb7f00-97d8-11eb-86bc-a0d59e326cbc.png)
 
  **Step 3) Modify the Container** : Now we can do any changes we want. Here, we will be installing Nmap software in our container. As it is an Ubuntu image container, we will use apt-get command to install any software.
+ 
  ```$ apt-get install nmap```
+ 
  ![image](https://user-images.githubusercontent.com/29313557/113879637-59304d80-97d8-11eb-8445-4dcd4caf1539.png)
 
 Once you finish modifying the new container, exit out of it.
+
 ```$ exit```
 
 We will need the CONTAINER ID to save the changes we have made to the existing image. Run the docker ps -a to list all the containers and copy the Container ID.
+
 ```$ docker ps -a```
 
 ![image](https://user-images.githubusercontent.com/29313557/113879773-80871a80-97d8-11eb-9b56-4c7421869d8e.png)
 
 **Step 4) Commit changes to Image**: Finally, we will create a new Image by committing the changes using the commit command.
+
 ```$ docker images```
+
 ![image](https://user-images.githubusercontent.com/29313557/113879893-9ac0f880-97d8-11eb-8352-d123a10a9743.png)
   
-- Dockerfile Method
+### Dockerfile Method
  A Dockerfile is a document file that contains collections of commands that will be executed in the docker environment for building a new docker image. This file is written in  YAML Language. These images consist of read-only layers each of which represents a Dockerfile instruction. It is a more systematic, flexible and efficient way to build a Docker image.
 ![image](https://user-images.githubusercontent.com/29313557/113880002-b62c0380-97d8-11eb-83bc-549d9fca5fc2.png)
 The following table shows the commonly used Dockerfile statements:
