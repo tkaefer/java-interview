@@ -1,5 +1,5 @@
 # Container
-Containerization is a technique that allows software to run reliably regardless of the computing environment. By encapsulating software within isolated environments called containers
+Containerization is a technique that allows software to run reliably regardless of the computing environment. By encapsulating software within isolated environments called containers.
 ![image](https://user-images.githubusercontent.com/29313557/113821833-426b0600-979a-11eb-8775-ed43f8ce2116.png)
 
 **Containerization approach takes care of several issues:**
@@ -46,6 +46,19 @@ Containerization is a technique that allows software to run reliably regardless 
 - **Docker Container Management** — The true power of Docker container technology lies in its ability to perform complex tasks with minimal resources. If not managed properly they will bloat, bogging down the environment and reducing the capabilities they were designed to deliver. This page gathers resources about how to effectively manage Docker, how to pick the right management tool including a list of recomended tools.
 - **Storing Data Within Containers** — It is possible to store data within the writable layer of a container. Docker offers three different ways to mount data into a container from the Docker host: volumes, bind mounts, or tmpfs volumes. This page gathers resources about various to store data with containers, the downsides like the persistent storage and information on how to manage data in Docker.
 - **Docker Compliance** — While Docker Containers have fundamentally accelerated application development, organizations using them still must adhere to the same set of external regulations, including NIST, PCI and HIPAA.  They also must meet their internal policies for best practices and configurations. This page gathers resources about Docker compliance, policies, and its challenges.
+
+## Common Operations
+Some common operations you’ll need with Docker images include:
+
+- **Build a new image from a Dockerfile:** The command for building an image from a Dockerfile is **docker build** , where you specify the location of the Dockerfile (it could be the current directory). You can (optionally) apply one or more tags to the resulting image using parameters. Use the **-t** option.
+- List all local images: Use the **docker images** command to list all local images. The output includes image ID, repository, tags, and creation date.
+- **Tagging an existing image:** You assign tags to images for clarification, so users know the version of an image they are pulling from a repository. The command to tag an image is **docker tag** and you need to provide the image ID and your chosen tag (including the repository). For example:
+```docker tag 0e5574283393 username/my_repo:1.0```
+- **Pulling a new image from a Docker Registry:** To pull an image from a registry, use  **docker pull**  and specify the repository name. By default, the latest version of the image is retrieved from the Docker Hub registry, but this behaviour can be overridden by specifying a different version and/or registry in the pull command. For example, to pull version 2.0 of my_repo from a private registry running on localhost port 5000, run:
+```docker pull localhost:5000/my_repo:2.0```
+- **Pushing a local image to the Docker registry:** You can push an image to Docker Hub or another registry to make it available for other users by running the docker push command. For example, to push the (latest) local version of my_repo to Docker Hub, make sure you’re logged in first by running **docker login**, then run:
+```docker push username/my_repo```
+- **Searching for images:** You can search the Docker Hub for images relating to specific terms using **docker search**.  You can specify filters to the search, for example only list “official” repositories.
 
 # Container Orchestration 
 Container orchestration is a process that automates the deployment, management, scaling, networking, and availability of container-based applications.
