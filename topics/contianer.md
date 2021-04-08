@@ -168,7 +168,12 @@ Starting and Restarting Docker Containers Automatically — Docker provides rest
 Troubleshooting Docker Engine — Docker makes everything easier. But even with the easiest platforms, sometimes you run into problems. This page gathers resources about  how to diagnose and troubleshoot problems, send logs, and communicate with the Docker Engine.
 - **Docker Orchestration – Tools and Options** — To get the full benefit of Docker container, you need software to move containers around in response to auto-scaling events, a failure of the backing host, and deployment updates. This is container orchestration. This page gathers resources about Docker orchestration tools, fundamentals and best practices.
 
+![image](https://user-images.githubusercontent.com/29313557/114074426-fb783000-98c1-11eb-98c9-6994b3adccd9.png)
 
+## How Do They Differ from Docker?
+Let us take a quick look at how each of these alternatives differs from Docker:
+
+![image](https://user-images.githubusercontent.com/29313557/114076981-ebae1b00-98c4-11eb-98ae-9ff57aca4c86.png)
 
 # Container Orchestration 
 Container orchestration is a process that automates the deployment, management, scaling, networking, and availability of container-based applications.
@@ -200,14 +205,6 @@ Non-functional aspects that are important: scalability, availability, flexibilit
 - **Azure Container Service (ACS):** ACS lets you create a cluster of virtual machines that act as container hosts along with master machines that are used to manage your application containers.
 - **Cloud Foundry’s Diego:** Container management system that combines a scheduler, runner, and health manager.
 - **CoreOS Fleet:** Container management tool that lets you deploy Docker containers on hosts in a cluster as well as distribute services across a cluster.
-
-![image](https://user-images.githubusercontent.com/29313557/114074426-fb783000-98c1-11eb-98c9-6994b3adccd9.png)
-
-## How Do They Differ from Docker?
-Let us take a quick look at how each of these alternatives differs from Docker:
-
-![image](https://user-images.githubusercontent.com/29313557/114076981-ebae1b00-98c4-11eb-98ae-9ff57aca4c86.png)
-
 
   
   ## Kubernetes
