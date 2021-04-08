@@ -206,7 +206,8 @@ Non-functional aspects that are important: scalability, availability, flexibilit
 ## How Do They Differ from Docker?
 Let us take a quick look at how each of these alternatives differs from Docker:
 
-![Uploading image.png…]()
+![image](https://user-images.githubusercontent.com/29313557/114076981-ebae1b00-98c4-11eb-98ae-9ff57aca4c86.png)
+
 
   
   ## Kubernetes
