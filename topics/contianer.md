@@ -201,6 +201,7 @@ Non-functional aspects that are important: scalability, availability, flexibilit
 - **Cloud Foundry’s Diego:** Container management system that combines a scheduler, runner, and health manager.
 - **CoreOS Fleet:** Container management tool that lets you deploy Docker containers on hosts in a cluster as well as distribute services across a cluster.
 
+![image](https://user-images.githubusercontent.com/29313557/114074050-96bcd580-98c1-11eb-9849-3cbaad6249ac.png)
 
   
   ## Kubernetes
