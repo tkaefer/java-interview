@@ -209,4 +209,6 @@ Non-functional aspects that are important: scalability, availability, flexibilit
   
   ## Kubernetes
   
+  https://github.com/kodekloudhub/certified-kubernetes-administrator-course
+  
 
