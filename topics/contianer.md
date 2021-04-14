@@ -514,6 +514,97 @@ Non-functional aspects that are important: scalability, availability, flexibilit
   ```
   ![image](https://user-images.githubusercontent.com/29313557/114788412-0558d200-9d9f-11eb-80c9-53950587eec0.png)
   
+### Kubelet
+#### Kubelet is the sole point of contact for the kubernetes cluster
+- The **`kubelet`** will create the pods on the nodes, the scheduler only decides which pods goes where.
+
+  ![image](https://user-images.githubusercontent.com/29313557/114788572-549f0280-9d9f-11eb-86e6-5f3a25188a8d.png)
+  
+#### Install kubelet
+- Kubeadm does not deploy kubelet by default. You must manually download and install it.
+- Download the kubelet binary from the kubernetes release pages [kubelet](https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kubelet). For example: To download kubelet v1.13.0, Run the below command.
+  ```
+  $ wget https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kubelet
+  ```
+- Extract it
+- Run it as a service
+
+  ![image](https://user-images.githubusercontent.com/29313557/114788597-5d8fd400-9d9f-11eb-95de-219fd439c21e.png)
+  
+#### View kubelet options
+- You can also see the running process and affective options by listing the process on worker node and searching for kubelet.
+  ``` 
+  $ ps -aux |grep kubelet
+  ```
+  
+  ![image](https://user-images.githubusercontent.com/29313557/114788609-6385b500-9d9f-11eb-82ec-2d6f13ed87ca.png)
+  
+### Kube Proxy
+Within Kubernetes Cluster, every pod can reach every other pod, this is accomplish by deploying a pod networking cluster to the cluster. 
+- Kube-Proxy is a process that runs on each node in the kubernetes cluster.
+  
+  ![image](https://user-images.githubusercontent.com/29313557/114788676-8a43eb80-9d9f-11eb-8b47-d88a133d069a.png)
+  
+#### Install kube-proxy - Manual
+- Download the kube-proxy binary from the kubernetes release pages [kube-proxy](https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kube-proxy). For example: To download kube-proxy v1.13.0, Run the below command.
+  ```
+  $ wget https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kube-proxy
+  ```
+- Extract it
+- Run it as a service
+
+  ![image](https://user-images.githubusercontent.com/29313557/114788695-9039cc80-9d9f-11eb-90e4-04e03336eeeb.png)
+
+#### View kube-proxy options - kubeadm
+- If you set it up with kubeadm tool, kubeadm tool will deploy the kube-proxy as pod in kube-system namespace. In fact it is deployed as a daemonset on master node.
+  ```
+  $ kubectl get pods -n kube-system
+  ```
+ ![image](https://user-images.githubusercontent.com/29313557/114788708-95971700-9d9f-11eb-841d-0fbe345090f6.png)
+  
+
+### Pods
+- POD introduction
+- How to deploy pod?
+
+#### Kubernetes doesn't deploy containers directly on the worker node.
+
+  ![image](https://user-images.githubusercontent.com/29313557/114788844-d131e100-9d9f-11eb-8be1-ceb71ded34c4.png)
+  
+#### Here is a single node kubernetes cluster with single instance of your application running in a single docker container encapsulated in the pod.
+
+![image](https://user-images.githubusercontent.com/29313557/114788869-db53df80-9d9f-11eb-88b5-2866fec92b55.png)
+
+#### Pod will have a one-to-one relationship with containers running your application.
+
+  ![image](https://user-images.githubusercontent.com/29313557/114788894-e575de00-9d9f-11eb-9fd4-fcd949fe04d1.png)
+  
+#### Multi-Container PODs
+- A single pod can have multiple containers except for the fact that they are usually not multiple containers of the **`same kind`**.
+  
+  ![image](https://user-images.githubusercontent.com/29313557/114788923-eeff4600-9d9f-11eb-9196-e9d92b29dd99.png)
+  
+## Docker Example (Docker Link)
+  
+  ![image](https://user-images.githubusercontent.com/29313557/114788945-f7578100-9d9f-11eb-8d92-64d2ef291993.png)
+  
+## How to deploy pods?
+Lets now take a look to create a nginx pod using **`kubectl`**.
+
+- To deploy a docker container by creating a POD.
+  ```
+  $ kubectl run nginx --image nginx
+  ```
+
+- To get the list of pods
+  ```
+  $ kubectl get pods
+  ```
+
+ ![image](https://user-images.githubusercontent.com/29313557/114788963-fe7e8f00-9d9f-11eb-8d14-6596fbbbd303.png)
+
+
+  
 
 
 
