@@ -120,6 +120,8 @@ Earlier we saw how to deploy a stack using docker run command. You could use the
 
 ![image](https://user-images.githubusercontent.com/29313557/114766296-d7b25f80-9d83-11eb-8072-510a9ae9da92.png)
 
+![image](https://user-images.githubusercontent.com/29313557/114766603-3aa3f680-9d84-11eb-8161-f8ee2924c711.png)
+
 ### Docker Networking
 
 ![image](https://user-images.githubusercontent.com/29313557/114766950-a7b78c00-9d84-11eb-96fa-98a404c7784d.png)
@@ -130,19 +132,6 @@ When you install Docker, it creates three networks automatically Bridge, Null an
 
 Run the **docker network ls** command to list all networks.
 
-## Common Operations
-Some common operations you’ll need with Docker images include:
-
-- **Build a new image from a Dockerfile:** The command for building an image from a Dockerfile is **docker build** , where you specify the location of the Dockerfile (it could be the current directory). You can (optionally) apply one or more tags to the resulting image using parameters. Use the **-t** option.
-- List all local images: Use the **docker images** command to list all local images. The output includes image ID, repository, tags, and creation date.
-- **Tagging an existing image:** You assign tags to images for clarification, so users know the version of an image they are pulling from a repository. The command to tag an image is **docker tag** and you need to provide the image ID and your chosen tag (including the repository). For example:
-```docker tag 0e5574283393 username/my_repo:1.0```
-- **Pulling a new image from a Docker Registry:** To pull an image from a registry, use  **docker pull**  and specify the repository name. By default, the latest version of the image is retrieved from the Docker Hub registry, but this behaviour can be overridden by specifying a different version and/or registry in the pull command. For example, to pull version 2.0 of my_repo from a private registry running on localhost port 5000, run:
-```docker pull localhost:5000/my_repo:2.0```
-- **Pushing a local image to the Docker registry:** You can push an image to Docker Hub or another registry to make it available for other users by running the docker push command. For example, to push the (latest) local version of my_repo to Docker Hub, make sure you’re logged in first by running **docker login**, then run:
-```docker push username/my_repo```
-- **Searching for images:** You can search the Docker Hub for images relating to specific terms using **docker search**.  You can specify filters to the search, for example only list “official” repositories.
-- 
 ## How to create a Docker Image?
 We have 2 ways to create a Docker Image:
  ### Interactive Method
@@ -175,7 +164,7 @@ We will need the CONTAINER ID to save the changes we have made to the existing i
 
 **Step 4) Commit changes to Image**: Finally, we will create a new Image by committing the changes using the commit command.
 
-```$ docker images```
+```$ docker commit```
 
 ![image](https://user-images.githubusercontent.com/29313557/113879893-9ac0f880-97d8-11eb-8352-d123a10a9743.png)
   
@@ -279,14 +268,16 @@ Three main functional aspects of what they do include:
 Non-functional aspects that are important: scalability, availability, flexibility, usability, portability, and security.
 
 ## What are some Container Orchestration tools available?
+
 ![image](https://user-images.githubusercontent.com/29313557/113820866-e8b60c00-9798-11eb-8e72-3f909e0b79bc.png)
 
 - **Docker Swarm:** Provides native clustering functionality for Docker containers, which turns a group of Docker engines into a single, virtual Docker engine.
+ 
  ![image](https://user-images.githubusercontent.com/29313557/114766427-029cb380-9d84-11eb-8822-9f7b1526a64a.png)
  
  ![image](https://user-images.githubusercontent.com/29313557/114766533-2233dc00-9d84-11eb-9b89-8c91a2d8dbd1.png)
 
-![image](https://user-images.githubusercontent.com/29313557/114766603-3aa3f680-9d84-11eb-8161-f8ee2924c711.png)
+
 
 
 - **Google Container Engine:** Google Container Engine, built on Kubernetes, lets you run Docker containers on the Google Cloud.
