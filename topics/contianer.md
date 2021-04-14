@@ -1014,8 +1014,41 @@ spec:
  1. LoadBalancer
     - Where the service provisions a **`loadbalancer`** for our application in supported cloud providers.
 
+### Kubernetes Services - ClusterIP
+#### ClusterIP
+- In this case the service creates a **`Virtual IP`** inside the cluster to enable communication between different services such as a set of frontend servers to a set of backend servers.
+    
+   ![image](https://user-images.githubusercontent.com/29313557/114791794-b6ae3680-9da4-11eb-977a-92ebb6ccef0a.png)
+    
+#### What is a right way to establish connectivity between these services or tiers  
+- A kubernetes service can help us group the pods together and provide a single interface to access the pod in a group.
 
+  ![image](https://user-images.githubusercontent.com/29313557/114791803-bca41780-9da4-11eb-9e09-2d28b0000134.png)
   
+#### To create a service of type ClusterIP
+```
+apiVersion: v1
+kind: Service
+metadata:
+ name: back-end
+spec:
+ types: ClusterIP
+ ports:
+ - targetPort: 80
+   port: 80
+ selector:
+   app: myapp
+   type: back-end
+```
+```
+$ kubectl create -f service-definition.yaml
+```
+
+#### To list the services
+```
+$ kubectl get services
+```
+  ![image](https://user-images.githubusercontent.com/29313557/114791816-c463bc00-9da4-11eb-8d83-288a567cdd72.png)
   
   
 
