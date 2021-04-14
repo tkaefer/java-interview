@@ -2,10 +2,7 @@
 - Containers are completely isolated environments, as in they can have their own processes or services, their own network interfaces, their own mounts, just like Virtual machines, except that they all share the same OS kernel.
 - Containers have existed for about 10 years now and some of the different types of containers are LXC, LXD , LXCFS etc. Docker utilizes LXC containers.
 
-![image](https://user-images.githubusercontent.com/29313557/114752888-70d97a00-9d74-11eb-9d82-5e36a28c6585.png)
 
-
-![image](https://user-images.githubusercontent.com/29313557/114753026-a41c0900-9d74-11eb-8137-25aa521e9b65.png)
 
 ![image](https://user-images.githubusercontent.com/29313557/114758286-6c17c480-9d7a-11eb-8b41-48a726052994.png)
 
@@ -21,29 +18,22 @@
 
  # Docker
  
+![image](https://user-images.githubusercontent.com/29313557/114752888-70d97a00-9d74-11eb-9d82-5e36a28c6585.png)
+
+
+![image](https://user-images.githubusercontent.com/29313557/114753026-a41c0900-9d74-11eb-8137-25aa521e9b65.png)
+
+
  ## Docker Architecture and Operations
+ 
+ ![image](https://user-images.githubusercontent.com/29313557/114761264-e0a03280-9d7d-11eb-90f9-8747a87894b7.png)
+
 ![image](https://user-images.githubusercontent.com/29313557/114758891-1d1e5f00-9d7b-11eb-87aa-b13b4ee9fdae.png)
 
+
+
+
 ![image](https://user-images.githubusercontent.com/29313557/114759127-640c5480-9d7b-11eb-8b0c-b9375d04eafb.png)
-
-![image](https://user-images.githubusercontent.com/29313557/114759278-98801080-9d7b-11eb-8161-e4ceeae5f49d.png)
-
-![image](https://user-images.githubusercontent.com/29313557/114759449-c9f8dc00-9d7b-11eb-841d-60f0c1f6c206.png)
-
-
-![image](https://user-images.githubusercontent.com/29313557/114759529-e6951400-9d7b-11eb-8952-30bdbb80e315.png)
-
-![image](https://user-images.githubusercontent.com/29313557/114759617-062c3c80-9d7c-11eb-92e4-e209352da0e7.png)
-
-![image](https://user-images.githubusercontent.com/29313557/114759692-1fcd8400-9d7c-11eb-85ea-edbe6c4aadc8.png)
-
-![image](https://user-images.githubusercontent.com/29313557/114759794-3d025280-9d7c-11eb-9a41-5b239d853c1f.png)
-
-
-![image](https://user-images.githubusercontent.com/29313557/114759885-5905f400-9d7c-11eb-95bd-935f53e6f218.png)
-
-
-
  ### Images
  - An image is a package or a template, just like a VM template that you might have worked with in the virtualization world. It is used to create one or more containers.
  - Images are created with the docker build command, either by us or by other docker users.
@@ -55,6 +45,7 @@
  - If an image is a class, then a container is an instance of a class - a runtime object.
  - Containers are lightweight and portable encapsulations of an environment in which to run programs.
  - Containers are created from images. Inside a container, it has all the binaries and dependencies needed to run the application.
+
 
  ### Docker daemon 
  The daemon is responsible for all container related actions and receives commands via the CLI or the REST API.
@@ -71,6 +62,23 @@
  - Official names are reviewed by DockerHub.
  - If you don't specify a tag, it defaults to latest.
  - Docker will use the local image first if it's available, otherwise it will download it from the network.
+
+
+![image](https://user-images.githubusercontent.com/29313557/114759278-98801080-9d7b-11eb-8161-e4ceeae5f49d.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114759449-c9f8dc00-9d7b-11eb-841d-60f0c1f6c206.png)
+
+
+![image](https://user-images.githubusercontent.com/29313557/114759529-e6951400-9d7b-11eb-8952-30bdbb80e315.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114759617-062c3c80-9d7c-11eb-92e4-e209352da0e7.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114759692-1fcd8400-9d7c-11eb-85ea-edbe6c4aadc8.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114759794-3d025280-9d7c-11eb-9a41-5b239d853c1f.png)
+
+
+![image](https://user-images.githubusercontent.com/29313557/114759885-5905f400-9d7c-11eb-95bd-935f53e6f218.png)
 
 ## Basic Docker Operations
 - **Docker Image Repositories** — A Docker Image repository is a place where Docker Images are actually stored, compared to the image registry which is a collection of pointers to this images. This page gathers resources about public repositories like the Docker hub and private repositories and how to set up and manage Docker repositories.
