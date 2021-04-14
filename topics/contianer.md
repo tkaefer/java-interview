@@ -79,7 +79,56 @@
 
 ![image](https://user-images.githubusercontent.com/29313557/114759885-5905f400-9d7c-11eb-95bd-935f53e6f218.png)
 
+![image](https://user-images.githubusercontent.com/29313557/114763983-0c70e780-9d81-11eb-9bc0-384dd7f3e3a6.png)
 
+![image](https://user-images.githubusercontent.com/29313557/114764181-404c0d00-9d81-11eb-859e-864ff4fe2ee2.png)
+
+we would like to execute a command on a running container. For example, when I run the **docker ps** command I can see that there is a running container. Let’s say I would
+like to see the contents of a file inside the running container. I could use the **docker exec** command to execute a command on my docker container.
+
+![image](https://user-images.githubusercontent.com/29313557/114764393-843f1200-9d81-11eb-812c-682b4244773f.png)
+
+We learned that we could use the **docker run** Ubuntu command to run a container. In this case the latest version of Ubuntu. But what if we want to run another version of Ubuntu? Like for example the version 17.04. Then you specify the version separated by a colon. This is called a **tag**. Also, notice that if you don’t specify any tag as in the previous command, docker will consider the default tag which is “latest”
+
+![image](https://user-images.githubusercontent.com/29313557/114764619-cd8f6180-9d81-11eb-97fa-c6775b175af4.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114764790-fb74a600-9d81-11eb-8251-83272fb5681e.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114764872-16471a80-9d82-11eb-9ba6-7539e2b5633e.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114764996-4098d800-9d82-11eb-85c1-9623e4381a26.png)
+
+
+![image](https://user-images.githubusercontent.com/29313557/114765167-776eee00-9d82-11eb-8062-125221f51174.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114765339-ac7b4080-9d82-11eb-8e3b-b40cd8c0f5fa.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114765416-c61c8800-9d82-11eb-9fb0-8de44841671d.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114765496-d7659480-9d82-11eb-9a0a-6b2af363be86.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114765573-ee0beb80-9d82-11eb-83ed-ab0a6f9fb0c2.png)
+
+All the layers built are cached by Docker. So, in case a particular step was to fail, for example in this case Step 3 failed and you were to fix the issue and re run docker
+build, it will re use the previous layers from cache and continue to build the remaining layers. The same is true if you were to add additional steps in the Dockerfile . This way rebuilding your image is faster and you don’t have to wait for Docker to rebuilt the entire image each time. This is helpful especially when you update source code of your application as it may change more frequently. Only the layers above the updated layers needs to be rebuild.
+
+### Docker Compose 
+
+![image](https://user-images.githubusercontent.com/29313557/114765953-6c688d80-9d83-11eb-999f-a04d65fbf56d.png)
+
+Earlier we saw how to deploy a stack using docker run command. You could use the docker run command if you wanted to deploy a test container of some kind. Instead of running separate docker run commands a better way to do this is to define your configuration in a docker compose file. A docker compose file is a file in YAML format were you define the different services involved in your application such as web, database, messaging, orchestration etc. Once the file is defined, running the **docker compose up** command will bring up the stack.
+
+![image](https://user-images.githubusercontent.com/29313557/114766296-d7b25f80-9d83-11eb-8072-510a9ae9da92.png)
+
+### Docker Networking
+
+![image](https://user-images.githubusercontent.com/29313557/114766950-a7b78c00-9d84-11eb-96fa-98a404c7784d.png)
+
+When you install Docker, it creates three networks automatically Bridge, Null and Host. Bridge is the default network a container gets attached to. If you would like to associate the container with any other network specify the network information using the network command line parameter like this.With the none network the containers are not attached to any network and doesn’t have any access to the external network or other containers.
+
+![image](https://user-images.githubusercontent.com/29313557/114767163-eea58180-9d84-11eb-8d13-2a24b0aae161.png)
+
+Run the **docker network ls** command to list all networks.
 
 ## Common Operations
 Some common operations you’ll need with Docker images include:
@@ -93,6 +142,7 @@ Some common operations you’ll need with Docker images include:
 - **Pushing a local image to the Docker registry:** You can push an image to Docker Hub or another registry to make it available for other users by running the docker push command. For example, to push the (latest) local version of my_repo to Docker Hub, make sure you’re logged in first by running **docker login**, then run:
 ```docker push username/my_repo```
 - **Searching for images:** You can search the Docker Hub for images relating to specific terms using **docker search**.  You can specify filters to the search, for example only list “official” repositories.
+- 
 ## How to create a Docker Image?
 We have 2 ways to create a Docker Image:
  ### Interactive Method
@@ -232,6 +282,13 @@ Non-functional aspects that are important: scalability, availability, flexibilit
 ![image](https://user-images.githubusercontent.com/29313557/113820866-e8b60c00-9798-11eb-8e72-3f909e0b79bc.png)
 
 - **Docker Swarm:** Provides native clustering functionality for Docker containers, which turns a group of Docker engines into a single, virtual Docker engine.
+ ![image](https://user-images.githubusercontent.com/29313557/114766427-029cb380-9d84-11eb-8822-9f7b1526a64a.png)
+ 
+ ![image](https://user-images.githubusercontent.com/29313557/114766533-2233dc00-9d84-11eb-9b89-8c91a2d8dbd1.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114766603-3aa3f680-9d84-11eb-8161-f8ee2924c711.png)
+
+
 - **Google Container Engine:** Google Container Engine, built on Kubernetes, lets you run Docker containers on the Google Cloud.
 - **Kubernetes:** An orchestration system for Docker containers. It handles scheduling and manages workloads based on user-defined parameters.
 - **Mesosphere Marathon:** Marathon is a container orchestration framework for Apache Mesos that is designed to launch long-running applications.
