@@ -1048,7 +1048,7 @@ $ kubectl create -f service-definition.yaml
 ```
 $ kubectl get services
 ```
-  ![image](https://user-images.githubusercontent.com/29313557/114791816-c463bc00-9da4-11eb-8d83-288a567cdd72.png)
+ ![image](https://user-images.githubusercontent.com/29313557/114791816-c463bc00-9da4-11eb-8d83-288a567cdd72.png)
   
   
 
