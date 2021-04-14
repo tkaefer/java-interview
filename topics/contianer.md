@@ -1,6 +1,11 @@
 # Container
-Containerization is a technique that allows software to run reliably regardless of the computing environment. By encapsulating software within isolated environments called containers.
-![image](https://user-images.githubusercontent.com/29313557/113821833-426b0600-979a-11eb-8775-ed43f8ce2116.png)
+- Containers are completely isolated environments, as in they can have their own processes or services, their own network interfaces, their own mounts, just like Virtual machines, except that they all share the same OS kernel.
+- Containers have existed for about 10 years now and some of the different types of containers are LXC, LXD , LXCFS etc. Docker utilizes LXC containers.
+
+![image](https://user-images.githubusercontent.com/29313557/114694057-d1969180-9d37-11eb-87a8-ac4ef908e7b4.png)
+
+
+![image](https://user-images.githubusercontent.com/29313557/114693512-4ae1b480-9d37-11eb-98e9-b3e0f0b975cf.png)
 
 **Containerization approach takes care of several issues:**
 - No platform specific, IDE, or programming language restrictions.
@@ -9,24 +14,37 @@ Containerization is a technique that allows software to run reliably regardless 
 - Quick and easy application instance deployment.
 - Applications and their resources are isolated, leading to better modularity and security.
 
+ # Docker
+ 
+ ![image](https://user-images.githubusercontent.com/29313557/114693223-03f3bf00-9d37-11eb-9176-a5e536d69b04.png)
+
+ ![image](https://user-images.githubusercontent.com/29313557/114693398-2dace600-9d37-11eb-9a9b-d1987e3ceef6.png)
+
+ ![image](https://user-images.githubusercontent.com/29313557/114694175-e83ce880-9d37-11eb-84a7-db4d2e6d7038.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114694253-f8ed5e80-9d37-11eb-898d-0ef302afefd4.png)
+
  ## Docker Architecture and Operations
 ![image](https://user-images.githubusercontent.com/29313557/113823042-cec9f880-979b-11eb-91f0-7d2aaab8b422.png)
 
- ### Docker daemon 
- The daemon is responsible for all container related actions and receives commands via the CLI or the REST API.
- ### Docker Client
- A Docker client is how users interact with Docker. The Docker client can reside on the same host as the daemon or a remote  host.
 
  ### Images
- - Images are read as templates used to create containers.
+ - An image is a package or a template, just like a VM template that you might have worked with in the virtualization world. It is used to create one or more containers.
  - Images are created with the docker build command, either by us or by other docker users.
  - Images are composed of layers of other images.
  - Images are stored in Docker registry.
  
  ### Containers
+ - Containers are running instances off images that are isolated and have their own environments and set of processes.
  - If an image is a class, then a container is an instance of a class - a runtime object.
  - Containers are lightweight and portable encapsulations of an environment in which to run programs.
  - Containers are created from images. Inside a container, it has all the binaries and dependencies needed to run the application.
+
+ ### Docker daemon 
+ The daemon is responsible for all container related actions and receives commands via the CLI or the REST API.
+ 
+ ### Docker Client
+ A Docker client is how users interact with Docker. The Docker client can reside on the same host as the daemon or a remote  host.
 
  ### Registries and Repositories
  - A registry is where we store our images.
