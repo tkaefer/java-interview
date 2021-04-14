@@ -7,6 +7,11 @@
 
 ![image](https://user-images.githubusercontent.com/29313557/114753026-a41c0900-9d74-11eb-8137-25aa521e9b65.png)
 
+![image](https://user-images.githubusercontent.com/29313557/114758286-6c17c480-9d7a-11eb-8b41-48a726052994.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114758488-a6816180-9d7a-11eb-9da8-2872b752504d.png)
+
+
 **Containerization approach takes care of several issues:**
 - No platform specific, IDE, or programming language restrictions.
 - Small image sizes, making it easier to ship and store.
@@ -16,16 +21,27 @@
 
  # Docker
  
- ![image](https://user-images.githubusercontent.com/29313557/114693223-03f3bf00-9d37-11eb-9176-a5e536d69b04.png)
-
- ![image](https://user-images.githubusercontent.com/29313557/114693398-2dace600-9d37-11eb-9a9b-d1987e3ceef6.png)
-
- ![image](https://user-images.githubusercontent.com/29313557/114694175-e83ce880-9d37-11eb-84a7-db4d2e6d7038.png)
-
-![image](https://user-images.githubusercontent.com/29313557/114694253-f8ed5e80-9d37-11eb-898d-0ef302afefd4.png)
-
  ## Docker Architecture and Operations
-![image](https://user-images.githubusercontent.com/29313557/113823042-cec9f880-979b-11eb-91f0-7d2aaab8b422.png)
+![image](https://user-images.githubusercontent.com/29313557/114758891-1d1e5f00-9d7b-11eb-87aa-b13b4ee9fdae.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114759127-640c5480-9d7b-11eb-8b0c-b9375d04eafb.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114759278-98801080-9d7b-11eb-8161-e4ceeae5f49d.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114759449-c9f8dc00-9d7b-11eb-841d-60f0c1f6c206.png)
+
+
+![image](https://user-images.githubusercontent.com/29313557/114759529-e6951400-9d7b-11eb-8952-30bdbb80e315.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114759617-062c3c80-9d7c-11eb-92e4-e209352da0e7.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114759692-1fcd8400-9d7c-11eb-85ea-edbe6c4aadc8.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114759794-3d025280-9d7c-11eb-9a41-5b239d853c1f.png)
+
+
+![image](https://user-images.githubusercontent.com/29313557/114759885-5905f400-9d7c-11eb-95bd-935f53e6f218.png)
+
 
 
  ### Images
