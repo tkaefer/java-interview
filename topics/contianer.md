@@ -2,10 +2,10 @@
 - Containers are completely isolated environments, as in they can have their own processes or services, their own network interfaces, their own mounts, just like Virtual machines, except that they all share the same OS kernel.
 - Containers have existed for about 10 years now and some of the different types of containers are LXC, LXD , LXCFS etc. Docker utilizes LXC containers.
 
-![image](https://user-images.githubusercontent.com/29313557/114694057-d1969180-9d37-11eb-87a8-ac4ef908e7b4.png)
+![image](https://user-images.githubusercontent.com/29313557/114752888-70d97a00-9d74-11eb-9d82-5e36a28c6585.png)
 
 
-![image](https://user-images.githubusercontent.com/29313557/114693512-4ae1b480-9d37-11eb-98e9-b3e0f0b975cf.png)
+![image](https://user-images.githubusercontent.com/29313557/114753026-a41c0900-9d74-11eb-8137-25aa521e9b65.png)
 
 **Containerization approach takes care of several issues:**
 - No platform specific, IDE, or programming language restrictions.
