@@ -167,6 +167,12 @@ You can cover a lot of ground by skimming over what you already know or what you
   
   15. <a href="https://aws.amazon.com/organizations/faqs/">AWS Organizations FAQs</a>
 
+
+![Uploading image.png…]()
+
+
+
+
 ## Identity Access Management (IAM)
 
 ### IAM Simplified:
