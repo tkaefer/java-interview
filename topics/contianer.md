@@ -417,6 +417,65 @@ Non-functional aspects that are important: scalability, availability, flexibilit
   ```
  ![image](https://user-images.githubusercontent.com/29313557/114771013-b9e7f900-9d89-11eb-8c57-8676a9c0c085.png)
 
+## Kube Controller Manager
+
+#### Kube Controller Manager manages various controllers in kubernetes.
+- In kubernetes terms, a controller is a process that continously monitors the state of the components within the system and works towards bringing the whole system to the desired functioning state.
+
+#### Node Controller
+   - Responsible for monitoring the state of the Nodes and taking necessary actions to keep the application running. 
+  
+   ![image](https://user-images.githubusercontent.com/29313557/114777163-fb2fd700-9d90-11eb-9ec0-72d1c3104242.png)
+   
+#### Replication Controller
+   - It is responsible for monitoring the status of replicasets and ensuring that the desired number of pods are available at all time within the set.
+   
+   ![image](https://user-images.githubusercontent.com/29313557/114777176-0256e500-9d91-11eb-8e42-7120e7fbbeae.png)
+   
+#### Other Controllers
+   - There are many more such controllers available within kubernetes
+     
+   ![image](https://user-images.githubusercontent.com/29313557/114777192-07b42f80-9d91-11eb-9b57-dc6b5793796c.png)
+   
+   
+  #### Installing Kube-Controller-Manager
+  - When you install kube-controller-manager the different controllers will get installed as well.
+  - Download the kube-controller-manager binary from the kubernetes release page. For example: You can download kube-controller-manager v1.13.0 here [kube-controller-manager](https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kube-controller-manager)
+    ```
+    $ wget https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kube-controller-manager
+    ```
+  - By default all controllers are enabled, but you can choose to enable specific one from **`kube-controller-manager.service`**
+    ```
+    $ cat /etc/systemd/system/kube-controller-manager.service
+    ```
+    ![image](https://user-images.githubusercontent.com/29313557/114777220-139ff180-9d91-11eb-90ad-4090a488b8b3.png)
+    
+#### View kube-controller-manager - kubeadm
+- kubeadm deploys the kube-controller-manager as a pod in kube-system namespace
+  ```
+  $ kubectl get pods -n kube-system
+  ```
+  ![image](https://user-images.githubusercontent.com/29313557/114777245-1c90c300-9d91-11eb-84c5-3f0b70d72a8b.png)
+  
+#### View kube-controller-manager options - kubeadm
+- You can see the options within the pod located at **`/etc/kubernetes/manifests/kube-controller-manager.yaml`**
+  ```
+  $ cat /etc/kubernetes/manifests/kube-controller-manager.yaml
+  ```
+  ![image](https://user-images.githubusercontent.com/29313557/114777273-231f3a80-9d91-11eb-8d1c-f93ae2fadfa2.png)
+  
+#### View kube-controller-manager options - Manual
+- In a non-kubeadm setup, you can inspect the options by viewing the **`kube-controller-manager.service`**
+  ```
+  $ cat /etc/systemd/system/kube-controller-manager.service
+  ```
+  ![image](https://user-images.githubusercontent.com/29313557/114777289-287c8500-9d91-11eb-9fa3-eafc5506fc9e.png)
+  
+- You can also see the running process and affective options by listing the process on master node and searching for kube-controller-manager.
+  ```
+  $ ps -aux |grep kube-controller-manager
+  ```
+  ![image](https://user-images.githubusercontent.com/29313557/114777310-2e726600-9d91-11eb-809f-ad5a72df925d.png)
   
 
 
