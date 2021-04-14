@@ -334,6 +334,7 @@ Non-functional aspects that are important: scalability, availability, flexibilit
         ![image](https://user-images.githubusercontent.com/29313557/114769358-bb182680-9d87-11eb-885c-b95a78ba2f46.png)
 
  ### ETCD in Kubernetes
+ 
  #### ETCD Datastore
   - The ETCD Datastore stores information regarding the cluster such as **`Nodes`**, **`PODS`**, **`Configs`**, **`Secrets`**, **`Accounts`**, **`Roles`**, **`Bindings`** and   **`Others`**.
  - Every information you see when you run the **`kubectl get`** command is from the **`ETCD Server`**.
@@ -363,13 +364,59 @@ Non-functional aspects that are important: scalability, availability, flexibilit
   
   ![image](https://user-images.githubusercontent.com/29313557/114769742-38439b80-9d88-11eb-9e9c-890ae6473c65.png)
 
-#### ETCD in HA Environment
+ #### ETCD in HA Environment
    - In a high availability environment, you will have multiple master nodes in your cluster that will have multiple ETCD Instances spread across the master nodes.
-   - Make sure etcd instances know each other by setting the right parameter in the **`etcd.service`** configuration. The **`--initial-cluster`** option where you need to specify the different instances of the etcd service.
+   - Make sure etcd instances know each other by setting the right parameter in the **`etcd.service`** configuration. The **`--initial-cluster`** option where you need to  specify the different instances of the etcd service.
      ![image](https://user-images.githubusercontent.com/29313557/114769774-41346d00-9d88-11eb-9c29-24b769ec0018.png)
 
 
+### Kube API Server
   
+#### Kube-apiserver is the primary component in kubernetes.
+- Kube-apiserver is responsible for **`authenticating`**, **`validating`** requests, **`retrieving`** and **`Updating`** data in ETCD key-value store. In fact kube-apiserver is the only component that interacts directly to the etcd datastore. The other components such as kube-scheduler, kube-controller-manager and kubelet uses the API-Server to update in the cluster in their respective areas.
+  
+  ![image](https://user-images.githubusercontent.com/29313557/114770530-2ca4a480-9d89-11eb-8537-4ec160adac19.png)
+  
+#### Installing kube-apiserver
+
+- If you are bootstrapping kube-apiserver using **`kubeadm`** tool, then you don't need to know this, but if you are setting up using the hardway then kube-apiserver is available as a binary in the kubernetes release page.
+  - For example: You can downlaod the kube-apiserver v1.13.0 binary here [kube-apiserver](https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kube-apiserver)
+    ```
+    $ wget https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kube-apiserver
+    ```
+ 
+![image](https://user-images.githubusercontent.com/29313557/114770897-991fa380-9d89-11eb-9210-51034013db3b.png)
+ 
+#### View kube-apiserver - Kubeadm
+- kubeadm deploys the kube-apiserver as a pod in kube-system namespace on the master node.
+  ```
+  $ kubectl get pods -n kube-system
+  ```
+   
+  ![image](https://user-images.githubusercontent.com/29313557/114770938-a341a200-9d89-11eb-8ae9-477c4a24c19f.png)
+   
+#### View kube-apiserver options - Kubeadm
+- You can see the options with in the pod definition file located at **`/etc/kubernetes/manifests/kube-apiserver.yaml`**
+  ```
+  $ cat /etc/kubernetes/manifests/kube-apiserver.yaml
+  ```
+  
+  ![image](https://user-images.githubusercontent.com/29313557/114770967-ab014680-9d89-11eb-93a0-4ceb20d08d8e.png)
+   
+#### View kube-apiserver options - Manual
+- In a Non-kubeadm setup, you can inspect the options by viewing the kube-apiserver.service
+  ```
+  $ cat /etc/systemd/system/kube-apiserver.service
+  ```
+  
+  ![image](https://user-images.githubusercontent.com/29313557/114771003-b5234500-9d89-11eb-8ef9-9c6eacf0bd2e.png)
+   
+- You can also see the running process and affective options by listing the process on master node and searching for kube-apiserver.
+  ```
+  $ ps -aux |grep kube-apiserver
+  ```
+ ![image](https://user-images.githubusercontent.com/29313557/114771013-b9e7f900-9d89-11eb-8c57-8676a9c0c085.png)
+
   
 
 
