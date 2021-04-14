@@ -293,4 +293,12 @@ Non-functional aspects that are important: scalability, availability, flexibilit
   
   https://github.com/kodekloudhub/certified-kubernetes-administrator-course
   
+  ### Cluster Architecture
+  - 10,000 Feet Look at the Kubernetes Architecture
+
+  ![Kubernetes Architecture](../../images/k8s-arch.PNG)
+  
+  ![Kubernetes Architecture 1](../../images/k8s-arch1.PNG)
+
+
 
