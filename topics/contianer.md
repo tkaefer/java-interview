@@ -584,11 +584,11 @@ Within Kubernetes Cluster, every pod can reach every other pod, this is accompli
   
   ![image](https://user-images.githubusercontent.com/29313557/114788923-eeff4600-9d9f-11eb-9196-e9d92b29dd99.png)
   
-## Docker Example (Docker Link)
+#### Docker Example (Docker Link)
   
   ![image](https://user-images.githubusercontent.com/29313557/114788945-f7578100-9d9f-11eb-8d92-64d2ef291993.png)
   
-## How to deploy pods?
+#### How to deploy pods?
 Lets now take a look to create a nginx pod using **`kubectl`**.
 
 - To deploy a docker container by creating a POD.
@@ -603,6 +603,423 @@ Lets now take a look to create a nginx pod using **`kubectl`**.
 
  ![image](https://user-images.githubusercontent.com/29313557/114788963-fe7e8f00-9d9f-11eb-8d14-6596fbbbd303.png)
 
+### ReplicaSets
+- Replication Controller
+- ReplicaSet
+
+#### Controllers are brain behind kubernetes
+
+#### What is a Replica and Why do we need a replication controller?
+
+  ![image](https://user-images.githubusercontent.com/29313557/114789332-941a1e80-9da0-11eb-9e25-48b9a94b9d8b.png)
+  
+  ![image](https://user-images.githubusercontent.com/29313557/114789339-99776900-9da0-11eb-8595-86ffa435cd27.png)
+  
+#### Difference between ReplicaSet and Replication Controller
+- **`Replication Controller`** is the older technology that is being replaced by a **`ReplicaSet`**.
+- **`ReplicaSet`** is the new way to setup replication.
+
+#### Creating a Replication Controller
+
+#### Replication Controller Definition File
+  
+   ![image](https://user-images.githubusercontent.com/29313557/114789356-a1370d80-9da0-11eb-9b61-50f7a4ba9ee4.png)
+  
+```
+    apiVersion: v1
+    kind: ReplicationController
+    metadata:
+      name: myapp-rc
+      labels:
+        app: myapp
+        type: front-end
+    spec:
+     template:
+        metadata:
+          name: myapp-pod
+          labels:
+            app: myapp
+            type: front-end
+        spec:
+         containers:
+         - name: nginx-container
+           image: nginx
+     replicas: 3
+```
+  - To Create the replication controller
+    ```
+    $ kubectl create -f rc-definition.yaml
+    ```
+  - To list all the replication controllers
+    ```
+    $ kubectl get replicationcontroller
+    ```
+  - To list pods that are launch by the replication controller
+    ```
+    $ kubectl get pods
+    ```
+   ![image](https://user-images.githubusercontent.com/29313557/114789372-aac07580-9da0-11eb-9417-ca9662faca2a.png)
+    
+#### Creating a ReplicaSet
+  
+#### ReplicaSet Definition File
+
+   ![image](https://user-images.githubusercontent.com/29313557/114789392-b1e78380-9da0-11eb-8360-ba6dffe325f4.png)
+
+```
+    apiVersion: apps/v1
+    kind: ReplicaSet
+    metadata:
+      name: myapp-replicaset
+      labels:
+        app: myapp
+        type: front-end
+    spec:
+     template:
+        metadata:
+          name: myapp-pod
+          labels:
+            app: myapp
+            type: front-end
+        spec:
+         containers:
+         - name: nginx-container
+           image: nginx
+     replicas: 3
+     selector:
+       matchLabels:
+        type: front-end
+ ```
+#### ReplicaSet requires a selector definition when compare to Replicaton Controller.
+   
+  - To Create the replicaset
+    ```
+    $ kubectl create -f replicaset-definition.yaml
+    ```
+  - To list all the replicaset
+    ```
+    $ kubectl get replicaset
+    ```
+  - To list pods that are launch by the replicaset
+    ```
+    $ kubectl get pods
+    ```
+   
+   ![image](https://user-images.githubusercontent.com/29313557/114789427-bca21880-9da0-11eb-9063-e3c01a9b3c8d.png)
+    
+##### Labels and Selectors
+#### What is the deal with Labels and Selectors? Why do we label pods and objects in kubernetes?
+
+  ![image](https://user-images.githubusercontent.com/29313557/114789445-c461bd00-9da0-11eb-8810-57d96f84e3cb.png)
+  
+#### How to scale replicaset
+- There are multiple ways to scale replicaset
+  - First way is to update the number of replicas in the replicaset-definition.yaml definition file. E.g replicas: 6 and then run 
+ ```
+    apiVersion: apps/v1
+    kind: ReplicaSet
+    metadata:
+      name: myapp-replicaset
+      labels:
+        app: myapp
+        type: front-end
+    spec:
+     template:
+        metadata:
+          name: myapp-pod
+          labels:
+            app: myapp
+            type: front-end
+        spec:
+         containers:
+         - name: nginx-container
+           image: nginx
+     replicas: 6
+     selector:
+       matchLabels:
+        type: front-end
+```
+
+  ```
+  $ kubectl apply -f replicaset-definition.yaml
+  ```
+  - Second way is to use **`kubectl scale`** command.
+  ```
+  $ kubectl scale --replicas=6 -f replicaset-definition.yaml
+  ```
+  - Third way is to use **`kubectl scale`** command with type and name
+  ```
+  $ kubectl scale --replicas=6 replicaset myapp-replicaset
+  ```
+  ![image](https://user-images.githubusercontent.com/29313557/114789572-f3782e80-9da0-11eb-9ec0-e263cc0236ec.png)
+
+### Deployments
+
+#### Deployment is a kubernetes object. 
+  
+ ![image](https://user-images.githubusercontent.com/29313557/114789692-228ea000-9da1-11eb-9d4d-45daa5be1d57.png)
+  
+#### How do we create deployment?
+
+```
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: myapp-deployment
+      labels:
+        app: myapp
+        type: front-end
+    spec:
+     template:
+        metadata:
+          name: myapp-pod
+          labels:
+            app: myapp
+            type: front-end
+        spec:
+         containers:
+         - name: nginx-container
+           image: nginx
+     replicas: 3
+     selector:
+       matchLabels:
+        type: front-end
+ ```
+- Once the file is ready, create the deployment using deployment definition file
+  ```
+  $ kubectl create -f deployment-definition.yaml
+  ```
+- To see the created deployment
+  ```
+  $ kubectl get deployment
+  ```
+- The deployment automatically creates a **`ReplicaSet`**. To see the replicasets
+  ```
+  $ kubectl get replicaset
+  ```
+- The replicasets ultimately creates **`PODs`**. To see the PODs
+  ```
+  $ kubectl get pods
+  ```
+    
+ ![image](https://user-images.githubusercontent.com/29313557/114789712-2a4e4480-9da1-11eb-9989-6c4d4e6080e8.png)
+  
+- To see the all objects at once
+  ```
+  $ kubectl get all
+  ```
+ ![image](https://user-images.githubusercontent.com/29313557/114789731-2f12f880-9da1-11eb-8caf-0775556d02fd.png)
+ 
+ 
+ ### Namespaces
+So far in this course we have created **`Objects`** such as **`PODs`**, **`Deployments`** and **`Services`** in our cluster. Whatever we have been doing we have been doing in a **`NAMESPACE`**.
+- This namespace is the **`default`** namespace in kubernetes. It is automatically created when kubernetes is setup initially.
+
+  ![image](https://user-images.githubusercontent.com/29313557/114789931-7dc09280-9da1-11eb-950c-f6bf74eb2f68.png)
+ 
+- You can create your own namespaces as well.
+
+  ![image](https://user-images.githubusercontent.com/29313557/114789945-844f0a00-9da1-11eb-9ee5-6174649c18a7.png)
+  
+- To list the pods in default namespace
+  ```
+  $ kubectl get pods
+  ```
+- To list the pods in another namespace. Use **`kubectl get pods`** command along with the **`--namespace`** flag or argument.
+  ```
+  $ kubectl get pods --namespace=kube-system
+  ```
+  ![image](https://user-images.githubusercontent.com/29313557/114789961-8a44eb00-9da1-11eb-8f1f-a1f7141deb31.png)
+  
+- Here we have a pod definition file, when we create a pod with pod-definition file, the pod is created in the default namespace.
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+     app: myapp
+     type: front-end
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx
+ ```
+  ```
+  $ kubectl create -f pod-definition.yaml
+  ```
+- To create the pod with the pod-definition file in another namespace, use the **`--namespace`** option.
+  ```
+  $ kubectl create -f pod-definition.yaml --namespace=dev
+  ```
+  ![image](https://user-images.githubusercontent.com/29313557/114789976-92048f80-9da1-11eb-9da2-cc9fd91a6396.png)
+
+- If you want to make sure that this pod gets you created in the **`dev`** env all the time, even if you don't specify in the command line, you can move the **`--namespace`** definition into the pod-definition file.
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  namespace: dev
+  labels:
+     app: myapp
+     type: front-end
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx
+ ```
+  
+  ![image](https://user-images.githubusercontent.com/29313557/114790008-9c268e00-9da1-11eb-9baf-f6641fe01837.png)
+  
+- To create a new namespace, create a namespace definition as shown below and then run **`kubectl create`**
+```
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+```
+
+  ```
+  $ kubectl create -f namespace-dev.yaml
+  ```
+  Another way to create a namespace
+  ```
+  $ kubectl create namespace dev
+  ```
+  ![image](https://user-images.githubusercontent.com/29313557/114790019-a21c6f00-9da1-11eb-8bbf-5f6baea39a16.png)
+  
+- By default, we will be in a **`default`** namespace. To switch to a particular namespace permenently run the below command.
+  ```
+  $ kubectl config set-context $(kubectl config current-context) --namespace=dev
+  ```
+- To view pods in all namespaces
+  ```
+  $ kubectl get pods --all-namespaces
+  ```
+  ![image](https://user-images.githubusercontent.com/29313557/114790038-a8aae680-9da1-11eb-8b61-db2c00f3cb14.png)
+  
+- To limit resources in a namespace, create a resource quota. To create one start with **`ResourceQuota`** definition file.
+```
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: compute-quota
+  namespace: dev
+spec:
+  hard:
+    pods: "10"
+    requests.cpu: "4"
+    requests.memory: 5Gi
+    limits.cpu: "10"
+    limits.memory: 10Gi
+```
+  ```
+  $ kubectl create -f compute-quota.yaml
+  ```
+  ![image](https://user-images.githubusercontent.com/29313557/114790054-ae083100-9da1-11eb-9729-73ed2a11e74e.png)
+  
+## Kubernetes Services
+#### Services
+- Kubernetes Services enables communication between various components within and outside of the application.
+
+  ![image](https://user-images.githubusercontent.com/29313557/114791383-1821d580-9da4-11eb-9034-8b3971077216.png)
+  
+#### Let's look at some other aspects of networking
+
+## External Communication
+
+- How do we as an **`external user`** access the **`web page`**?
+
+  - From the node (Able to reach the application as expected)
+  
+    ![image](https://user-images.githubusercontent.com/29313557/114791402-207a1080-9da4-11eb-9eab-8a77addde19a.png)
+    
+  - From outside world (This should be our expectation, without something in the middle it will not reach the application)
+  
+    ![image](https://user-images.githubusercontent.com/29313557/114791421-2d96ff80-9da4-11eb-8ce6-4366391fb8ef.png)
+   
+    
+ ## Service Types
+ 
+ #### There are 3 types of service types in kubernetes
+ 
+   ![image](https://user-images.githubusercontent.com/29313557/114791439-34be0d80-9da4-11eb-9423-2413567d13fa.png)
+ 
+ 1. NodePort
+    - Where the service makes an internal POD accessible on a POD on the NODE.
+      ```
+      apiVersion: v1
+      kind: Service
+      metadata:
+       name: myapp-service
+      spec:
+       types: NodePort
+       ports:
+       - targetPort: 80
+         port: 80
+         nodePort: 30008
+      ```
+     ![image](https://user-images.githubusercontent.com/29313557/114791471-3daedf00-9da4-11eb-8b0d-24b56751cd2d.png)
+      
+      #### To connect the service to the pod
+      ```
+      apiVersion: v1
+      kind: Service
+      metadata:
+       name: myapp-service
+      spec:
+       types: NodePort
+       ports:
+       - targetPort: 80
+         port: 80
+         nodePort: 30008
+       selector:
+         app: myapp
+         type: front-end
+       ```
+
+    ![image](https://user-images.githubusercontent.com/29313557/114791491-46071a00-9da4-11eb-8fe3-fbcd822a5ced.png)
+      
+      #### To create the service
+      ```
+      $ kubectl create -f service-definition.yaml
+      ```
+      
+      #### To list the services
+      ```
+      $ kubectl get services
+      ```
+      
+      #### To access the application from CLI instead of web browser
+      ```
+      $ curl http://192.168.1.2:30008
+      ```
+      
+      ![image](https://user-images.githubusercontent.com/29313557/114791591-646d1580-9da4-11eb-91a9-e938fd4fa388.png)
+
+      #### A service with multiple pods
+      
+      ![image](https://user-images.githubusercontent.com/29313557/114791616-6c2cba00-9da4-11eb-8637-4b699597c641.png)
+      
+      #### When Pods are distributed across multiple nodes
+     
+      ![image](https://user-images.githubusercontent.com/29313557/114791638-72bb3180-9da4-11eb-9569-ee5311ae8a9f.png)
+     
+            
+ 1. ClusterIP
+    - In this case the service creates a **`Virtual IP`** inside the cluster to enable communication between different services such as a set of frontend servers to a set of backend servers.
+    
+ 1. LoadBalancer
+    - Where the service provisions a **`loadbalancer`** for our application in supported cloud providers.
+
+
+  
+  
+  
+
+  
 
   
 
