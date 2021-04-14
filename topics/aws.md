@@ -168,7 +168,10 @@ You can cover a lot of ground by skimming over what you already know or what you
   15. <a href="https://aws.amazon.com/organizations/faqs/">AWS Organizations FAQs</a>
 
 
-![Uploading image.png…]()
+![image](https://user-images.githubusercontent.com/29313557/114660801-92eee000-9d13-11eb-86d7-868acbfb7cb9.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114660830-9b471b00-9d13-11eb-81c6-aca551f870dd.png)
+
 
 
 
