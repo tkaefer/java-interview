@@ -296,9 +296,81 @@ Non-functional aspects that are important: scalability, availability, flexibilit
   ### Cluster Architecture
   - 10,000 Feet Look at the Kubernetes Architecture
 
-  ![Kubernetes Architecture](../../images/k8s-arch.PNG)
+  ![image](https://user-images.githubusercontent.com/29313557/114768964-2d3c3b80-9d87-11eb-8400-e5f7a5669720.png)
   
-  ![Kubernetes Architecture 1](../../images/k8s-arch1.PNG)
+  ![image](https://user-images.githubusercontent.com/29313557/114768992-35947680-9d87-11eb-95f9-58577b5342c7.png)
+  
+  #### What is a ETCD?
+     - ETCD is a distributed reliable key-value store that is simple, secure & Fast.
+     
+  #### What is a Key-Value Store
+   - Traditionally, databases have been in tabular format, you must have heared about SQL or Relational databases. They store data in rows and columns
+       
+     !![image](https://user-images.githubusercontent.com/29313557/114769135-6c6a8c80-9d87-11eb-903a-b610019a9e5b.png)
+     
+   - A Key-Value Store stores information in a Key and Value format.
+       
+     ![image](https://user-images.githubusercontent.com/29313557/114769150-712f4080-9d87-11eb-92af-b06a165ea3aa.png)
+     
+  #### Run the ETCD Service
+       ```
+       $ ./etcd
+       ```
+     - When you start **`ETCD`** it will by default listens on port **`2379`**
+      - The default client that comes with **`ETCD`** is the **`etcdct`** client. You can use it to store and retrieve key-value pairs.
+        ```
+        Syntax: To Store a Key-Value pair
+        $ ./etcdctl set key1 value1
+        ```
+        ```
+        Syntax: To retrieve the stored data
+        $ ./etcdctl get key1
+        ```
+        ```
+        Syntax: To view more commands. Run etcdctl without any arguments
+        $ ./etcdctl
+        ```
+        
+        ![image](https://user-images.githubusercontent.com/29313557/114769358-bb182680-9d87-11eb-885c-b95a78ba2f46.png)
+
+ ### ETCD in Kubernetes
+ #### ETCD Datastore
+  - The ETCD Datastore stores information regarding the cluster such as **`Nodes`**, **`PODS`**, **`Configs`**, **`Secrets`**, **`Accounts`**, **`Roles`**, **`Bindings`** and   **`Others`**.
+ - Every information you see when you run the **`kubectl get`** command is from the **`ETCD Server`**.
+
+#### Setup - Manual
+- If you setup your cluster from scratch then you deploy **`ETCD`** by downloading ETCD Binaries yourself
+- Installing Binaries and Configuring ETCD as a service in your master node yourself.
+  ```
+  $ wget -q --https-only "https://github.com/etcd-io/etcd/releases/download/v3.3.11/etcd-v3.3.11-linux-amd64.tar.gz"
+  ```
+
+  ![image](https://user-images.githubusercontent.com/29313557/114769644-1a763680-9d88-11eb-9f28-dae0524dc4c0.png)
+  
+#### Setup - Kubeadm
+- If you setup your cluster using **`kubeadm`** then kubeadm will deploy etcd server for you as a pod in **`kube-system`** namespace.
+  ```
+  $ kubectl get pods -n kube-system
+  ```
+  ![image](https://user-images.githubusercontent.com/29313557/114769698-2bbf4300-9d88-11eb-8c5f-0fd215d6469b.png)
+
+#### Explore ETCD
+- To list all keys stored by kubernetes, run the below command
+  ```
+  $ kubectl exec etcd-master -n kube-system etcdctl get / --prefix -key
+  ```
+- Kubernetes Stores data in a specific directory structure, the root directory is the **`registry`** and under that you have varies kubernetes constructs such as **`minions`**, **`nodes`**, **`pods`**, **`replicasets`**, **`deployments`**, **`roles`**, **`secrets`** and **`Others`**.
+  
+  ![image](https://user-images.githubusercontent.com/29313557/114769742-38439b80-9d88-11eb-9e9c-890ae6473c65.png)
+
+#### ETCD in HA Environment
+   - In a high availability environment, you will have multiple master nodes in your cluster that will have multiple ETCD Instances spread across the master nodes.
+   - Make sure etcd instances know each other by setting the right parameter in the **`etcd.service`** configuration. The **`--initial-cluster`** option where you need to specify the different instances of the etcd service.
+     ![image](https://user-images.githubusercontent.com/29313557/114769774-41346d00-9d88-11eb-9c29-24b769ec0018.png)
+
+
+  
+  
 
 
 
