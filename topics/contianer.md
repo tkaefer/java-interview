@@ -26,14 +26,11 @@
 
  ## Docker Architecture and Operations
  
- ![image](https://user-images.githubusercontent.com/29313557/114761264-e0a03280-9d7d-11eb-90f9-8747a87894b7.png)
-
-![image](https://user-images.githubusercontent.com/29313557/114758891-1d1e5f00-9d7b-11eb-87aa-b13b4ee9fdae.png)
-
-
+![image](https://user-images.githubusercontent.com/29313557/114761644-67eda600-9d7e-11eb-94db-a1f724d6ccfd.png)
 
 
 ![image](https://user-images.githubusercontent.com/29313557/114759127-640c5480-9d7b-11eb-8b0c-b9375d04eafb.png)
+
  ### Images
  - An image is a package or a template, just like a VM template that you might have worked with in the virtualization world. It is used to create one or more containers.
  - Images are created with the docker build command, either by us or by other docker users.
@@ -62,7 +59,10 @@
  - Official names are reviewed by DockerHub.
  - If you don't specify a tag, it defaults to latest.
  - Docker will use the local image first if it's available, otherwise it will download it from the network.
+ 
+ ## Docker Commands
 
+![image](https://user-images.githubusercontent.com/29313557/114758891-1d1e5f00-9d7b-11eb-87aa-b13b4ee9fdae.png)
 
 ![image](https://user-images.githubusercontent.com/29313557/114759278-98801080-9d7b-11eb-8161-e4ceeae5f49d.png)
 
@@ -77,17 +77,9 @@
 
 ![image](https://user-images.githubusercontent.com/29313557/114759794-3d025280-9d7c-11eb-9a41-5b239d853c1f.png)
 
-
 ![image](https://user-images.githubusercontent.com/29313557/114759885-5905f400-9d7c-11eb-95bd-935f53e6f218.png)
 
-## Basic Docker Operations
-- **Docker Image Repositories** — A Docker Image repository is a place where Docker Images are actually stored, compared to the image registry which is a collection of pointers to this images. This page gathers resources about public repositories like the Docker hub and private repositories and how to set up and manage Docker repositories.
-- **Working With Dockerfiles** — The Dockerfile is essentially the build instructions to build the Docker image. The advantage of a Dockerfile over just storing the binary image is that the automatic builds will ensure you have the latest version available. This page gathers resources about working with Dockerfiles including best practices, Dockerfile commands, how to create Docker images with a Dockerfile and more.
-- **Running Docker Containers** — All docker containers run one main process. After that process is complete the container stops running. This page gathers resources about how to run docker containers on different operating systems, including useful docker commands.
-- **Working With Docker Hub** — Docker Hub is a cloud-based repository in which Docker users and partners create, test, store and distribute container images. Through Docker Hub, a user can access public, open source image repositories, as well as use a space to create their own private repositories, automated build functions, and work groups. This page gathers resources about Docker Hub and how to push and pull container images to and from Docker Hub.
-- **Docker Container Management** — The true power of Docker container technology lies in its ability to perform complex tasks with minimal resources. If not managed properly they will bloat, bogging down the environment and reducing the capabilities they were designed to deliver. This page gathers resources about how to effectively manage Docker, how to pick the right management tool including a list of recomended tools.
-- **Storing Data Within Containers** — It is possible to store data within the writable layer of a container. Docker offers three different ways to mount data into a container from the Docker host: volumes, bind mounts, or tmpfs volumes. This page gathers resources about various to store data with containers, the downsides like the persistent storage and information on how to manage data in Docker.
-- **Docker Compliance** — While Docker Containers have fundamentally accelerated application development, organizations using them still must adhere to the same set of external regulations, including NIST, PCI and HIPAA.  They also must meet their internal policies for best practices and configurations. This page gathers resources about Docker compliance, policies, and its challenges.
+
 
 ## Common Operations
 Some common operations you’ll need with Docker images include:
