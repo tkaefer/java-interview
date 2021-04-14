@@ -476,6 +476,43 @@ Non-functional aspects that are important: scalability, availability, flexibilit
   $ ps -aux |grep kube-controller-manager
   ```
   ![image](https://user-images.githubusercontent.com/29313557/114777310-2e726600-9d91-11eb-809f-ad5a72df925d.png)
+ 
+### Kube Scheduler
+#### kube-scheduler is responsible for scheduling pods on nodes.  
+- The kube-scheduler is only responsible for deciding which pod goes on which node. It doesn't actually place the pod on the nodes, thats the job of the **`kubelet`**.
+
+  ![image](https://user-images.githubusercontent.com/29313557/114788331-e5291300-9d9e-11eb-851d-cd866794220b.png)
+  
+#### Why do you need a Scheduler?
+
+  ![image](https://user-images.githubusercontent.com/29313557/114788346-ebb78a80-9d9e-11eb-8407-e721df3c4401.png)
+    
+#### Install kube-scheduler - Manual
+- Download the kubescheduler binary from the kubernetes release pages [kube-scheduler](https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kube-scheduler). For example: To download kube-scheduler v1.13.0, Run the below command.
+  ```
+  $ wget https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kube-scheduler
+  ```
+- Extract it
+- Run it as a service
+
+  ![image](https://user-images.githubusercontent.com/29313557/114788379-f83be300-9d9e-11eb-8d67-b7c7ebeae6f2.png)
+  
+#### View kube-scheduler options - kubeadm
+- If you set it up with kubeadm tool, kubeadm tool will deploy the kube-scheduler as pod in kube-system namespace on master node.
+  ```
+  $ kubectl get pods -n kube-system
+  ```
+- You can see the options for kube-scheduler in pod definition file that is located at **`/etc/kubernetes/manifests/kube-scheduler.yaml`**
+  ```
+  $ cat /etc/kubernetes/manifests/kube-scheduler.yaml
+  ```
+  ![image](https://user-images.githubusercontent.com/29313557/114788392-fd992d80-9d9e-11eb-833e-7e8f64f7ed3c.png)
+  
+- You can also see the running process and affective options by listing the process on master node and searching for kube-apiserver.
+  ``` 
+  $ ps -aux |grep kube-scheduler
+  ```
+  ![image](https://user-images.githubusercontent.com/29313557/114788412-0558d200-9d9f-11eb-80c9-53950587eec0.png)
   
 
 
