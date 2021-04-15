@@ -9,7 +9,8 @@
 ![image](https://user-images.githubusercontent.com/29313557/114929723-cafc3d00-9e51-11eb-9ce6-201db8a7c2f0.png)
 
 # Cloud Services
-![image](https://user-images.githubusercontent.com/29313557/114930477-ae143980-9e52-11eb-9b34-6127ea270d68.png)
+![image](https://user-images.githubusercontent.com/29313557/114926716-51af1b00-9e4e-11eb-8e23-3ddfe12b2ff7.png)
+
 
 
 
@@ -127,7 +128,6 @@ You can cover a lot of ground by skimming over what you already know or what you
 
 ##
 
-![image](https://user-images.githubusercontent.com/29313557/114926716-51af1b00-9e4e-11eb-8e23-3ddfe12b2ff7.png)
 
 ![image](https://user-images.githubusercontent.com/29313557/114660801-92eee000-9d13-11eb-86d7-868acbfb7cb9.png)
 
