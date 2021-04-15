@@ -80,10 +80,10 @@
       
         **Best Practices**
         - Selection
-         - Compute
-         - Storage
-         - Database
-         - Network
+          - Compute
+          - Storage
+          - Database
+          - Network
        - Review
        - Monitoring
        - Tradeoffs
