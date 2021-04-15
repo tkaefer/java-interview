@@ -19,8 +19,7 @@
 
  ## Well-Architected Framework
    The five pillars are —
-   1. Operational Excellence
-      
+   1. Operational Excellence 
       **Design Principles**
        - Perform operations as code
        - Annotate documents
@@ -32,22 +31,22 @@
        - Prepare
        - Operate
        - Evolve
-       **Key AWS Service — AWS CloudFormation.**
-   2. Security
-     **Design Principles**
-     - Implement a strong identity foundations
-     - Enable traceability
-     - Apply security at all layers
-     - Automate security best practices
-     - Protect data in transit and at rest
-     - Keep people away from data
-     - Prepare for security events  
-     **Best Practices**
-     - Identity and Access Management
-     - Detective Controls
-     - Infrastructure Protection 
-     - Data Protection
-     - Incident Response
+      **Key AWS Service — AWS CloudFormation.**
+   2. Security   
+      **Design Principles**
+       - Implement a strong identity foundations
+       - Enable traceability
+       - Apply security at all layers
+       - Automate security best practices
+       - Protect data in transit and at rest
+       - Keep people away from data
+       - Prepare for security events  
+      **Best Practices**
+       - Identity and Access Management
+       - Detective Controls
+       - Infrastructure Protection 
+       - Data Protection
+       - Incident Response
       **Key AWS Service — AWS Identity and Access Management (IAM).**
    3. Reliability
       **Design Principles**
