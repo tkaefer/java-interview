@@ -1,14 +1,4 @@
-# AWS SAA-C02 Study Guide
-This study guide will help you pass the newer AWS Certified Solutions Architect - Associate exam. Ideally, you should reference this guide while working through the following material:
-
-  1. Stephane Maarek's <a href="https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02/">Ultimate AWS Certified Solutions Architect Associate 2020 course</a> or A Cloud Guru's <a href="https://acloud.guru/learn/aws-certified-solutions-architect-associate">AWS Certified Solutions Architect Associate 2020 course</a>
-  2. The FAQs for the most critical services, included in the recommended reading list below
-  3. Tutorials Dojo's <a href="https://www.udemy.com/course/aws-certified-solutions-architect-associate-amazon-practice-exams-saa-c02/">AWS Certified Solutions Architect Associate Practice Exams </a>
-  4. Andrew Brown's <a href="https://www.youtube.com/watch?v=Ia-UEYYR44s">AWS Certified Solutions Architect - Associate 2020 (PASS THE EXAM!) | Ad-Free Course
-</a> 
-
-*Notes*:
-If at any point you find yourself feeling uncertain of your progress and in need of more time, you can postpone your AWS exam date. Be sure to also keep up with the ongoing discussions in <a href="https://reddit.com/r/AWSCertifications/">r/AWSCertifications</a> as you will find relevant exam tips, studying material, and advice from other exam takers. Before experimenting with AWS, it's very important to be sure that you know what is <a href="https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc">free</a> and what isn't. Relevant Free Tier FAQs can be found <a href="https://aws.amazon.com/free/free-tier-faqs/">here</a>. Finally, Udemy often has their courses go on sale from time to time. It might be worth waiting to purchase either the Tutorial Dojo practice exam or Stephane Maarek's course depending on how urgently you need the content.
+# AMAZON WEB SERIVCE
 
 
 
@@ -85,54 +75,7 @@ If at any point you find yourself feeling uncertain of your progress and in need
 
 
 
-## Introduction
-
-<a href="https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate-Exam-Guide_v1.1_2019_08_27_FINAL.pdf">**The official AWS Solutions Architect - Associate (SAA-C02) exam guide**</a>
-
-### Exam Content Breakdown:
-![Screen Shot 2020-06-05 at 2 49 08 PM](https://user-images.githubusercontent.com/13093517/83912374-c2b87900-a73b-11ea-9691-b38383b43ff9.png)
-
-*Domain 1: Design Resilient Architectures*
-
-  1.1 - Design a multi-tier architecture solution
-
-  1.2 - Design highly available and/or fault-tolerant architectures
-
-  1.3 - Design decoupling mechanisms using AWS services
-
-  1.4 - Choose appropriate resilient storage
-
-
-*Domain 2: Design High-Performing Architectures*
-
-  2.1 - Identify elastic and scalable computesolutions for a workload
-
-  2.2 - Select high-performingand scalable storage solutions for a workload
-
-  2.3 - Select high-performingnetworking solutions for a workload
-
-  2.4 - Choose high-performingdatabase solutions for a workload
-
-
-*Domain 3: Design Secure Applications and Architectures*
-
-  3.1 - Design secure access to AWS resources
-
-  3.2 - Design secure application tiers
-
-  3.3 - Select appropriate data security options
-
-
-*Domain 4: Design Cost-Optimized Architectures*
-
-  4.1 - Identify cost-effective storage solutions
-
-  4.2 - Identify cost-effective compute and database services
-
-  4.3 - Design cost-optimized network architectures
-
-
-
+#
 ### Recommended Reading:
 
 You can cover a lot of ground by skimming over what you already know or what you can infer to be true. In particular, read the first sentence of each paragraph and if you have no uncertainty about what is being said in that sentence, move on to the first sentence of the next paragraph. Take notes whenever necessary.
