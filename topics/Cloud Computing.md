@@ -4,9 +4,12 @@
 
 ![image](https://user-images.githubusercontent.com/29313557/114927539-37c20800-9e4f-11eb-98e9-e71ce9586a59.png)
 
-# Different Cloud Services
+# Type of cloud computing
 
- ![image](https://user-images.githubusercontent.com/29313557/114929466-75279500-9e51-11eb-8f05-f09ab8bc2031.png)
+![image](https://user-images.githubusercontent.com/29313557/114929723-cafc3d00-9e51-11eb-9ce6-201db8a7c2f0.png)
+
+# Cloud Services
+![image](https://user-images.githubusercontent.com/29313557/114930477-ae143980-9e52-11eb-9b34-6127ea270d68.png)
 
 
 
