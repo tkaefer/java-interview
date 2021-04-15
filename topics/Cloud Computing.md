@@ -1,6 +1,18 @@
-# AMAZON WEB SERIVCE
+# Cloud Computing
+
+![image](https://user-images.githubusercontent.com/29313557/114927514-2ed13680-9e4f-11eb-81c2-0ad39bfb9f5a.png)
+
+![image](https://user-images.githubusercontent.com/29313557/114927539-37c20800-9e4f-11eb-98e9-e71ce9586a59.png)
+
+# Different Cloud Services
+
+ ![image](https://user-images.githubusercontent.com/29313557/114929466-75279500-9e51-11eb-8f05-f09ab8bc2031.png)
 
 
+
+
+
+# Amazon Web Services
 
 ## Table of Contents
 1. <a href="#introduction">Introduction</a>
@@ -110,6 +122,9 @@ You can cover a lot of ground by skimming over what you already know or what you
   
   15. <a href="https://aws.amazon.com/organizations/faqs/">AWS Organizations FAQs</a>
 
+##
+
+![image](https://user-images.githubusercontent.com/29313557/114926716-51af1b00-9e4e-11eb-8e23-3ddfe12b2ff7.png)
 
 ![image](https://user-images.githubusercontent.com/29313557/114660801-92eee000-9d13-11eb-86d7-868acbfb7cb9.png)
 
