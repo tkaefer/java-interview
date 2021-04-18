@@ -6,7 +6,7 @@
 
 - [Core Java](/core java/core-java.md)
 - [Collections](core java/collections.md)
-- [Java 8](core java/java-8.md)
+- [Java 8](java/java-8.md)
 - [Java Memory Model](core java/java-memory-model.md)
 - [Concurrency](core java/concurrency.md)
 - [Garbage Collection](core java/garbage-collection.md)
