@@ -1,3 +1,5 @@
+
+
 ## SOLID principles
 
 - S = Single Responsibility - Each class/instance should have only 1 responsibility
