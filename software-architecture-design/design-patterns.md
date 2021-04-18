@@ -5,8 +5,9 @@
 ## Desing principles vs Design Patterns
  - **Principle:** We should teach others in order to educate ourselves as well as others, and overall make our nation a progressive nation.
    **Pattern:** In our country, each medical doctor graduate is supposed to teach 6 months in a far-away village to complete his/her degree.
- - **Principles** apply to all of programming. You should have a very good reason any time you choose not to follow principles.
-   **Patterns** apply to specific, common problems. You should have a very good reason any time you choose to implement a pattern.
+
+ - **Principles:** apply to all of programming. You should have a very good reason any time you choose not to follow principles.
+   **Patterns:** apply to specific, common problems. You should have a very good reason any time you choose to implement a pattern.
 
 ### Creational
 
