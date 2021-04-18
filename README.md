@@ -1,13 +1,4 @@
-## Java interview
 
-I created study notes for my recent interviews. I am sharing them here so that others can benefit from it. 
-The notes are specifically for theory based Java interviews, typically done in service based companies 
-(as opposed to coding based interviews done in product companies).  
-
-### How to use it?
-
-These are study notes, mostly for revision couple of days before the interview. Check resources on each topic 
-for more in-depth preparation.
 
 ## Table Of Contents 
 
@@ -27,6 +18,8 @@ for more in-depth preparation.
 - [Effective Java](topics/design/effective-java.md)
 - [Design Patterns](topics/design/design-patterns.md)
 - [Approach to Design Questions](topics/design/approach.md)
+
+### Spring Boot/Spring Framework
 
 ### Related topics
 
