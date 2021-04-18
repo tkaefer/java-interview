@@ -4,7 +4,7 @@
 
 ### Core Java
 
-- [Core Java](core java/core-java.md)
+- [Core Java](/core java/core-java.md)
 - [Collections](core java/collections.md)
 - [Java 8](core java/java-8.md)
 - [Java Memory Model](core java/java-memory-model.md)
