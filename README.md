@@ -4,13 +4,13 @@
 
 ### Core Java
 
-- [Core Java](topics/core/core-java.md)
-- [Collections](topics/core/collections.md)
-- [Java 8](topics/core/java-8.md)
-- [Java Memory Model](topics/core/java-memory-model.md)
-- [Concurrency](topics/core/concurrency.md)
-- [Garbage Collection](topics/core/garbage-collection.md)
-- [JVM Internals](topics/core/jvm-internals.md)
+- [Core Java](core java/core-java.md)
+- [Collections](core java/collections.md)
+- [Java 8](core java/java-8.md)
+- [Java Memory Model](core java/java-memory-model.md)
+- [Concurrency](core java/concurrency.md)
+- [Garbage Collection](core java/garbage-collection.md)
+- [JVM Internals](core java/jvm-internals.md)
 
 ### Design / Clean Code
 
