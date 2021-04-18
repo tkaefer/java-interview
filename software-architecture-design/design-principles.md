@@ -19,6 +19,7 @@
 - Favor composition over inheritance
 - Encapsulate what changes/varies
 - Strive for loose coupling between objects
+- **KISS(Keep it simple, stupid)** - KISS principle states that most systems work best if they are kept simple rather than made complicated; therefore, simplicity should be a key goal in design, and unnecessary complexity should be avoided. 
 - **DRY (Do Not Repeat Yourself)** - Aimed at reducing repetition of software patterns, replacing it with abstractions or using data normalization to avoid redundancy.
 - **YAGNI (You Aren't Gonna Need It) or You don't need it now" (YDNIN)** - It states a programmer should not add functionality until deemed necessary. In other words, Always     implement things when you actually need them, never when you just foresee that you need them.
 - Law of Demeter (LoD) or principle of least knowledg = Talk only to immediate friends
