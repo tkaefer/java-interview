@@ -2,7 +2,7 @@
 
 - Design Pattern provides low-level solutions related to the implementation, of commonly occurring **object-oriented problems**
 
-## Design principles vs Design Patterns
+#### Design principles vs Design Patterns
  - **Principle:** We should teach others in order to educate ourselves as well as others, and overall make our nation a progressive nation.
    **Pattern:** In our country, each medical doctor graduate is supposed to teach 6 months in a far-away village to complete his/her degree.
 
