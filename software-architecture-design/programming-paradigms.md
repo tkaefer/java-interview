@@ -57,11 +57,17 @@ fundamental building blocks of an OOP program are:
 ![image](https://user-images.githubusercontent.com/29313557/115466545-dedae100-a24d-11eb-9693-ec64c9a4cdb8.png)
 
 **Association** : An Association is the basic term to represent the relation between objects. Example : _A student and a teacher are having an association_.
+
 **Aggregation** : Aggregation is more specific than Association. It is a variant of the **"has a"** or association relationship. referred to as a **Weak Association**:  Example : A student and a Library.Library can exists without students.
+
 **Composition** : Composition is more specific than aggregation. It is a stronger variant of the "**owns a"** or association relationship. Composition is also referred to as a Strong Association or Death relationship Example : Assocaition of Books and Library. Library can not exists without Books.
+
 **Dependency**: Dependency is more specific than Composition. It is a weaker form of relationship which indicates that one class depends on another because it uses it at some point of time. I.e. One class depends on another.
+
 **Multiplicity** : Multiplicity is more specific than Composition. This is association relationship indicates that (at least) one of the two related classes makes reference to the other. I.e. one contains other and vice-versa.
+
 **Realization** : A realization relationship between classes and interfaces and between components and interfaces shows that the class realizes the operations offered by the interface.
+
 **Generalization**: Generalization uses a “is-a” relationship from a specialization to the generalization class. Common structure and behavior are used from the specialization to the generalized class.
 
 
