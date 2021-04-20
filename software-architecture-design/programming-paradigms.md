@@ -58,17 +58,17 @@ fundamental building blocks of an OOP program are:
 
 **Association** : An Association is the basic term to represent the relation between objects. Example : _A student and a teacher are having an association_.
 
-**Aggregation** : Aggregation is more specific than Association. It is a variant of the **"has a"** or association relationship. referred to as a **Weak Association**:  Example : A student and a Library.Library can exists without students.
+**Aggregation** : Aggregation is more specific than Association. It is a variant of the **"has a"** or association relationship. referred to as a **Weak Association**:  Example : Relationship between library and student is aggregation. A student can exist without a library and therefore it is aggregation
 
-**Composition** : Composition is more specific than aggregation. It is a stronger variant of the "**owns a"** or association relationship. Composition is also referred to as a Strong Association or Death relationship Example : Assocaition of Books and Library. Library can not exists without Books.
+**Composition** : Composition is more specific than aggregation. It is a stronger variant of the "**owns a"** or association relationship. Composition is also referred to as a Strong Association or Death relationship Example : Relationship between library and book is composition. A book cannot exist without a library and therefore its a composition
 
-**Dependency**: Dependency is more specific than Composition. It is a weaker form of relationship which indicates that one class depends on another because it uses it at some point of time. I.e. One class depends on another.
+**Dependency**: Dependency is more specific than Composition. It is a weaker form of relationship which indicates that one class depends on another because it uses it at some point of time. I.e. One class depends on another.  Example: Relationship between shape and circle is dependency.
 
 **Multiplicity** : Multiplicity is more specific than Composition. This is association relationship indicates that (at least) one of the two related classes makes reference to the other. I.e. one contains other and vice-versa.
 
-**Realization** : A realization relationship between classes and interfaces and between components and interfaces shows that the class realizes the operations offered by the interface.
+**Realization** : A realization relationship between classes and interfaces and between components and interfaces shows that the class realizes the operations offered by the interface. A particular model of a car ‘GTB Fiorano’ that implements the blueprint of a car realizes the abstraction.
 
-**Generalization**: Generalization uses a “is-a” relationship from a specialization to the generalization class. Common structure and behavior are used from the specialization to the generalized class.
+**Generalization**: Generalization uses a “is-a” relationship from a specialization to the generalization class. Common structure and behavior are used from the specialization to the generalized class. Example: Consider there exists a class named Person. A student is a person. A faculty is a person. Therefore here the relationship between student and person, similarly faculty and person is generalization.
 
 
 
