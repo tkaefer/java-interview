@@ -1,0 +1,6 @@
+#### what is microservice architecture? why companies are moving to microservice? how to deploy on aws?
+- Microservices are an architectural and organizational approach to software development where software is composed of small independent services that communicate over well-defined APIs. These services are owned by small, self-contained teams.
+- With monolithic architectures, all processes are tightly coupled and run as a single service. This means that if one process of the application experiences a spike in demand, the entire architecture must be scaled.
+- With a microservices architecture, an application is built as independent components that run each application process as a service. These services communicate via a well-defined interface using lightweight APIs. Services are built for business capabilities and each service performs a single function.
+- While its natural for new companies to take the monolithic-first approach because its quick and you can deploy quickly as well, over time, as the monolith gets bigger, breaking it down into microservices becomes the most convenient solution.
+- you create separate code for serives and deploy on aws using elastic load balancer by uploading the war file.

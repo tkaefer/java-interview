@@ -1,33 +1,43 @@
 
 
-## Table Of Contents 
+## Table Of Contents
 
-### Core Java
+### Java
 
-- [Core Java](/core java/core-java.md)
-- [Collections](core java/collections.md)
-- [Java 8](java/java-8.md)
-- [Java Memory Model](core java/java-memory-model.md)
-- [Concurrency](core java/concurrency.md)
-- [Garbage Collection](core java/garbage-collection.md)
-- [JVM Internals](core java/jvm-internals.md)
+- [Core Java](topics/java/core-java.md)
+- [Collections](topics/java/collections.md)
+- [Java 8](topics/java/java-8.md)
+- [Java Memory Model](topics/java/java-memory-model.md)
+- [Concurrency](topics/java/concurrency.md)
+- [Garbage Collection](topics/java/garbage-collection.md)
+- [JVM Internals](topics/java/jvm-internals.md)
+- [Tricky Java](topics/moreExperienced/trickyjava.md)
+
+### Generic Software Development
+- [Random Questions](topics/moreExperienced/document.md)
+- [AWS](topics/moreExperienced/aws.md)
+- [Test Driven Development](topics/moreExperienced/test-driven-development.md)
+- [Micro Services](topics/moreExperienced/microservices.md)
 
 ### Design / Clean Code
-
+- [Clean Code](software-architecture/clean-code.md)
 - [SOLID Principles](topics/design/solid.md)
 - [Effective Java](topics/design/effective-java.md)
-- [Design Patterns](topics/design/design-patterns.md)
+- [Design Patterns](software-architecture/design-patterns.md)
 - [Approach to Design Questions](topics/design/approach.md)
 
 ### Spring Boot/Spring Framework
+- [Mvc Vs Boot](topics/Spring/mvc-vs-boot.md)
+- [Spring MVC](topics/Spring/mvcrelated.md)
+- [Spring Boot](topics/Spring/spring-boot.md)
 
 ### Related topics
 
-- [SQL](topics/related/sql.md) 
+- [SQL](topics/related/sql.md)
 - [UNIX](topics/related/unix.md)
 - [Web](topics/related/web.md)
 
-### Other topics 
+### Other topics
 
 - [Spring Boot overview (DI, Security, JPA, Testing)](http://deepakvadgama.com/blog/spring-boot-wonders/)
 
