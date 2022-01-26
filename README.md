@@ -15,13 +15,12 @@
 
 ### Generic Software Development
 - [Random Questions](topics/moreExperienced/document.md)
-- [AWS](topics/moreExperienced/aws.md)
 - [Test Driven Development](topics/moreExperienced/test-driven-development.md)
 - [Micro Services](topics/moreExperienced/microservices.md)
 
 ### Design / Clean Code
-- [Clean Code](software-architecture/clean-code.md)
-- [SOLID Principles](topics/design/solid.md)
+- [Clean Code](topics/design/clean-code.md)
+- [Design Principles](topics/design/design-principles.md)
 - [Effective Java](topics/design/effective-java.md)
 - [Design Patterns](software-architecture/design-patterns.md)
 - [Approach to Design Questions](topics/design/approach.md)
@@ -30,6 +29,11 @@
 - [Mvc Vs Boot](topics/Spring/mvc-vs-boot.md)
 - [Spring MVC](topics/Spring/mvcrelated.md)
 - [Spring Boot](topics/Spring/spring-boot.md)
+
+### Cloud
+- [AWS](topics/cloud/aws.md)
+- [AWS extended](topics/cloud/aws-extended.md)
+- [Kubernetes](topics/kubernetes/kubernetes.md)
 
 ### Related topics
 
