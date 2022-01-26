@@ -1,25 +1,16 @@
-## Java interview
 
-I created study notes for my recent interviews. I am sharing them here so that others can benefit from it. 
-The notes are specifically for theory based Java interviews, typically done in service based companies 
-(as opposed to coding based interviews done in product companies).  
-
-### How to use it?
-
-These are study notes, mostly for revision couple of days before the interview. Check resources on each topic 
-for more in-depth preparation.
 
 ## Table Of Contents 
 
 ### Core Java
 
-- [Core Java](topics/core/core-java.md)
-- [Collections](topics/core/collections.md)
-- [Java 8](topics/core/java-8.md)
-- [Java Memory Model](topics/core/java-memory-model.md)
-- [Concurrency](topics/core/concurrency.md)
-- [Garbage Collection](topics/core/garbage-collection.md)
-- [JVM Internals](topics/core/jvm-internals.md)
+- [Core Java](/core java/core-java.md)
+- [Collections](core java/collections.md)
+- [Java 8](java/java-8.md)
+- [Java Memory Model](core java/java-memory-model.md)
+- [Concurrency](core java/concurrency.md)
+- [Garbage Collection](core java/garbage-collection.md)
+- [JVM Internals](core java/jvm-internals.md)
 
 ### Design / Clean Code
 
@@ -27,6 +18,8 @@ for more in-depth preparation.
 - [Effective Java](topics/design/effective-java.md)
 - [Design Patterns](topics/design/design-patterns.md)
 - [Approach to Design Questions](topics/design/approach.md)
+
+### Spring Boot/Spring Framework
 
 ### Related topics
 
